@@ -7,10 +7,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        body { background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%); color: white; min-height: 100vh; }
-        .card { background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
+        body { background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%); color: #f1f5f9; min-height: 100vh; }
+        .card { background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.15); color: #f1f5f9; }
         .btn-primary { background: #00ff88; color: #0f172a; font-weight: bold; border: none; }
         .btn-primary:hover { background: #00cc6a; color: #0f172a; }
+        .form-label { color: #e2e8f0; }
+        .lead { color: #94a3b8; }
+        .display-4 { color: #ffffff; }
+        small.text-light { color: #cbd5e1 !important; }
+        .form-check-label { color: #e2e8f0; }
+        .form-check-label strong { color: #ffffff; }
+        h1, h2, h3, h4, h5, h6 { color: #ffffff; }
+        p { color: #cbd5e1; }
+        label { color: #e2e8f0; }
     </style>
 </head>
 <body>
@@ -27,7 +36,7 @@
                 <div class="mb-4">
                     <label class="form-label fw-bold">Tải file mẫu tham khảo</label>
                     <div class="input-group">
-                        <select class="form-select bg-dark text-white border-secondary" id="templateSelect">
+                        <select class="form-select bg-dark border-secondary" style="color: #e2e8f0;" id="templateSelect">
                             <option>Đang tải...</option>
                         </select>
                         <button class="btn btn-outline-light" onclick="downloadTemplate()">
@@ -36,11 +45,11 @@
                     </div>
                 </div>
 
-                <hr class="my-4">
+                <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
 
                 <div class="mb-4">
                     <label class="form-label fw-bold">1. Tải lên file JSON của bạn</label>
-                    <input type="file" id="fileInput" class="form-control bg-dark text-white border-secondary" accept=".json">
+                    <input type="file" id="fileInput" class="form-control bg-dark border-secondary" style="color: #e2e8f0;" accept=".json">
                 </div>
 
                 <div class="mb-4">
@@ -82,15 +91,14 @@
 </div>
 
 <script>
-    const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
-    const API_URL = isLocal ? "http://127.0.0.1:5000" : "https://kltn-uet.onrender.com";
+    const API_URL = "https://kltn-uet.onrender.com";
 
     async function loadTemplates() {
         try {
             const res = await fetch(`${API_URL}/api/templates`);
             const list = await res.json();
             const sel  = document.getElementById('templateSelect');
-            sel.innerHTML = list.map(t => `<option value="${t}">${t}</option>`).join('');
+            sel.innerHTML = list.map(t => `<option>${t}</option>`).join('');
         } catch {
             document.getElementById('templateSelect').innerHTML =
                 '<option>Không kết nối được server</option>';
@@ -118,9 +126,6 @@
         btn.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span>Đang tính toán... (có thể mất vài phút)`;
         btn.disabled = true;
 
-        // Cho trình duyệt render lại spinner trước khi fetch bắt đầu
-        await new Promise(resolve => setTimeout(resolve, 50));
-
         const formData = new FormData();
         formData.append('file', file);
         formData.append('algorithm', algo);
@@ -130,7 +135,7 @@
             const data = await res.json();
             if (data.error) throw new Error(data.error);
             localStorage.setItem('scheduleResult', JSON.stringify(data));
-            window.location.href = 'result.html';
+            window.location.href = '/result.html';
         } catch (err) {
             errBox.textContent = 'Lỗi: ' + err.message;
             errBox.classList.remove('d-none');
