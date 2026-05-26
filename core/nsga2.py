@@ -44,7 +44,7 @@ KEYS_F2 = [
 KEYS_F3 = [
     "prime_timeslot_fairness",  # Công bằng giờ vàng
     "no_timeslot_overload",     # Không quá nhiều trận/slot
-    "travel_distance_balance",  # [L] Chuyển từ F1 → F3 để tạo conflict thật
+    "travel_distance_balance",  #  Chuyển từ F1 → F3 để tạo conflict thật
 ]
 
 # Ghi chú conflict:
@@ -57,10 +57,10 @@ KEYS_F3 = [
 # F2 ↔ F3: big_match_monthly (F2) ↔ travel_distance_balance (F3)
 #           → trải đều big match theo tháng ↔ travel cân bằng
 
-# [B] Interval tính Hypervolume (thế hệ)
+#  Interval tính Hypervolume (thế hệ)
 HV_INTERVAL = 5
 
-# [I] Epsilon cho epsilon-dominance trong archive
+#  Epsilon cho epsilon-dominance trong archive
 # Tăng từ 0.05 → 0.10 để archive giữ nhiều nghiệm đa dạng hơn sau khi tách F
 ARCHIVE_EPSILON = 0.02
 
@@ -127,14 +127,14 @@ def build_params(num_teams: int, overrides: dict = None) -> dict:
 
 
 # ============================================================
-# [L] TÍNH OBJECTIVES — phân nhóm mới tạo conflict thật
+#  TÍNH OBJECTIVES — phân nhóm mới tạo conflict thật
 # ============================================================
 
 def compute_objectives(individual, tournament):
     """
     Gán individual.objectives = (F1, F2, F3) và individual.is_feasible.
 
-    [L] Phân nhóm mới:
+     Phân nhóm mới:
       F1 = home_away_balance + home_distribution + min_rest_days + season_edge_balance
       F2 = derby_distribution + no_derby_same_round + no_consec_big_team
            + big_match_half_balance + big_match_monthly + big_match_alternation
@@ -162,7 +162,7 @@ def compute_objectives(individual, tournament):
     W    = _get_weights(tournament.num_teams)
     soft = count_soft_penalties(individual, tournament)
 
-    # [L] Tổng hợp theo nhóm mới
+    #  Tổng hợp theo nhóm mới
     f1 = sum(W.get(k, 1) * soft.get(k, 0) for k in KEYS_F1)
     f2 = sum(W.get(k, 1) * soft.get(k, 0) for k in KEYS_F2)
     f3 = sum(W.get(k, 1) * soft.get(k, 0) for k in KEYS_F3)
@@ -190,7 +190,7 @@ def _dominates(obj_a, obj_b):
 
 def _epsilon_dominates(obj_a, obj_b, eps=ARCHIVE_EPSILON):
     """
-    [I] a ε-dominates b:
+     a ε-dominates b:
     a[i] <= b[i] * (1 + eps) với mọi i, tốt hơn ít nhất 1 chiều bởi eps.
     Buộc nghiệm trong archive phải đủ khác nhau.
     """
@@ -265,7 +265,7 @@ def fast_non_dominated_sort(population):
 
 def crowding_distance_assignment(front):
     """
-    [C] Normalized crowding distance — tránh F1 lấn át F2/F3.
+     Normalized crowding distance — tránh F1 lấn át F2/F3.
     Chia raw distance cho span của từng objective.
     """
     n = len(front)
@@ -291,14 +291,23 @@ def crowding_distance_assignment(front):
 
 
 # ============================================================
-# [K] REFERENCE POINTS (NSGA-III style)
+#  REFERENCE POINTS (NSGA-III style)
 # ============================================================
 
 def generate_reference_points(n_obj=3, n_divisions=4):
     """
-    [K] Tạo reference points đều trên simplex chuẩn.
-    [L] Sau khi tách objectives, Pareto front rộng hơn nên ref points
+     Tạo reference points đều trên simplex chuẩn.
+     Sau khi tách objectives, Pareto front rộng hơn nên ref points
         quan trọng hơn để đảm bảo coverage đều.
+     Khởi tạo khung lưới điểm tham chiếu (Reference Points) trên Simplex chuẩn.
+
+    Cơ chế:
+      Sử dụng tổ hợp lặp để tạo các điểm tọa độ (f1, f2, f3) sao cho tổng = 1.
+      Các điểm này đại diện cho các hướng ưu tiên khác nhau trong không gian 3D.
+
+    Ứng dụng:
+      Làm mốc định vị để đo lường độ phủ của Pareto front, đảm bảo không có 
+      vùng trade-off nào bị bỏ sót trong quá trình tối ưu.
     """
     points = []
     for combo in combinations_with_replacement(range(n_divisions + 1), n_obj):
@@ -309,8 +318,18 @@ def generate_reference_points(n_obj=3, n_divisions=4):
 
 def associate_to_reference_points(population, ref_points):
     """
-    [K] Gán mỗi cá thể vào reference point gần nhất (sau normalize).
+     Gán mỗi cá thể vào reference point gần nhất (sau normalize).
     Trả về dict {ref_point_idx: count}.
+     Phân vùng hốc sinh thái (Niche Association) cho quần thể.
+
+    Quy trình:
+      1. Chuẩn hóa (Normalize) các mục tiêu về đoạn [0, 1] để tránh lệch thang đo.
+      2. Tính khoảng cách Perpendicular Distance từ cá thể đến các vector tham chiếu.
+      3. Gán cá thể vào điểm tham chiếu gần nhất và cập nhật niche_count.
+
+    Ứng dụng:
+      Cung cấp dữ liệu mật độ để Selection ưu tiên các vùng thưa thớt, giúp 
+      Pareto front trải đều và rộng (Spread) tối đa.
     """
     if not population or not ref_points:
         return defaultdict(int)
@@ -334,12 +353,12 @@ def associate_to_reference_points(population, ref_points):
 
 
 # ============================================================
-# SELECTION — [A] Adaptive tournament + [H] rank-based + [K] ref-point
+# SELECTION —  Adaptive tournament +  rank-based +  ref-point
 # ============================================================
 
 def nsga2_selection(population, k=2, niche_count=None):
     """
-    [K] k-way tournament selection với niche awareness.
+     k-way tournament selection với niche awareness.
     Ưu tiên cá thể thuộc niche ít được cover hơn khi rank bằng nhau.
     """
     contestants = random.sample(population, min(k, len(population)))
@@ -360,7 +379,7 @@ def nsga2_selection(population, k=2, niche_count=None):
 
 def rank_based_selection(population):
     """
-    [H] Selection theo rank fitness tuyến tính.
+     Selection theo rank fitness tuyến tính.
     Cá thể rank Pareto nhỏ có xác suất chọn cao hơn.
     """
     sorted_pop = sorted(
@@ -373,25 +392,31 @@ def rank_based_selection(population):
 
 
 def _select_parent(population, tourn_k, rank_ratio, niche_count=None):
-    """[A][H][K] Chọn parent: dùng rank-based hoặc tournament theo tỷ lệ rank_ratio."""
+    """ Chọn parent: dùng rank-based hoặc tournament theo tỷ lệ rank_ratio."""
     if random.random() < rank_ratio:
         return rank_based_selection(population)
     return nsga2_selection(population, tourn_k, niche_count)
 
 
 def _adaptive_tournament_k(base_k, max_k, gen, num_gen):
-    """[A] Tournament size tăng dần từ base_k → max_k theo tiến trình thế hệ."""
+    """ Tournament size tăng dần từ base_k → max_k theo tiến trình thế hệ."""
     progress = gen / max(num_gen, 1)
     k = int(round(base_k + (max_k - base_k) * progress))
     return max(2, min(k, max_k))
 
 
 # ============================================================
-# [E][I] NICHE-BASED EXTERNAL PARETO ARCHIVE
+#  NICHE-BASED EXTERNAL PARETO ARCHIVE
 # ============================================================
 
 def _filter_non_dominated_feasible(candidates):
-    """Lọc tập non-dominated từ danh sách candidates feasible."""
+    """
+    [P] Bộ lọc Pareto (Non-dominated Filtering) cho các cá thể hợp lệ.
+
+    Cơ chế: Duyệt qua danh sách và chỉ giữ lại những cá thể không bị bất kỳ 
+    cá thể nào khác lấn át (đối soát đồng thời trên cả F1, F2 và F3).
+    Đây là bước sơ loại quan trọng để xác định ranh giới tối ưu hiện tại.
+    """
     non_dom = []
     for ind in candidates:
         dominated = False
@@ -409,12 +434,18 @@ def _filter_non_dominated_feasible(candidates):
 def update_archive(archive, new_candidates, max_size,
                    n_niches=10, epsilon=ARCHIVE_EPSILON):
     """
-    [E][I][L] Niche-based archive với epsilon-dominance.
+    [E][D][S] Quản lý kho lưu trữ Pareto ngoài (External Archive Management).
 
-    Sửa lỗi archive collapse:
-      - Niche key dùng vector (F1_bucket, F2_bucket, F3_bucket) thay vì sum
-      - Min-archive guard: nếu |eps_non_dom| < 5 → fallback về non_dom thường
-      - epsilon nhỏ hơn (0.02) để chỉ loại nghiệm thực sự trùng lắp
+    Ứng dụng: Duy trì "bộ nhớ" về các nghiệm tốt nhất từng được tìm thấy, đảm bảo tính hội tụ 
+    và đa dạng của mặt Pareto cuối cùng.
+
+    Quy trình xử lý:
+      1. Merge & Filter [P]: Gộp Archive cũ với ứng viên mới và lọc tập Non-dominated.
+      2. Epsilon-thinning [S]: Loại bỏ các nghiệm quá gần nhau để tránh hiện tượng cụm (clustering).
+      3. Niche Truncation [D]: Nếu vượt quá max_size, sử dụng lưới 3D để cắt tỉa. 
+         Ưu tiên giữ lại các cá thể ở vùng thưa thớt (sparsity) và có Crowding Distance cao.
+
+    Mục tiêu: Đảm bảo Archive luôn đại diện cho toàn bộ các kịch bản trade-off của giải đấu.
     """
     feasible = [ind for ind in new_candidates if getattr(ind, "is_feasible", False)]
     if not feasible and not archive:
@@ -425,7 +456,7 @@ def update_archive(archive, new_candidates, max_size,
     # Bước 1: lọc non-dominated thông thường
     non_dom = _filter_non_dominated_feasible(combined)
 
-    # Bước 2: [I] Epsilon-dominance — chỉ áp dụng khi đủ nghiệm
+    # Bước 2:  Epsilon-dominance — chỉ áp dụng khi đủ nghiệm
     if len(non_dom) >= 5:
         eps_non_dom = []
         for ind in non_dom:
@@ -454,7 +485,7 @@ def update_archive(archive, new_candidates, max_size,
     if len(deduped) <= max_size:
         return deduped
 
-    # Bước 3: [E] Niche-based cắt bớt — dùng vector (F1, F2, F3) riêng lẻ
+    # Bước 3:  Niche-based cắt bớt — dùng vector (F1, F2, F3) riêng lẻ
     # QUAN TRỌNG: Không dùng sum() vì F1=100,F2=50 và F1=50,F2=100 có cùng sum
     # nhưng đại diện cho 2 trade-off hoàn toàn khác nhau trên Pareto front.
     obj_mins = [min(ind.objectives[i] for ind in deduped) for i in range(3)]
@@ -501,7 +532,14 @@ def update_archive(archive, new_candidates, max_size,
 # ============================================================
 
 def population_diversity(population):
-    """[F] Diversity dùng signature đầy đủ: (home, away, round, timeslot)."""
+    """
+    [D] Đo lường tính đa dạng kiểu gen (Genotypic Diversity) của quần thể.
+
+    Cơ chế: Trích xuất chữ ký duy nhất (signature) của từng lịch thi đấu. 
+    Tỷ lệ giữa số lượng chữ ký duy nhất và kích thước quần thể cho biết mức độ "túm tụm".
+
+    Ứng dụng: Cung cấp tín hiệu điều khiển để kích hoạt các cơ chế chống hội tụ sớm.
+    """
     sigs = set()
     for ind in population:
         sig = tuple(sorted(
@@ -513,7 +551,11 @@ def population_diversity(population):
 
 
 def _make_new_individual(tournament):
-    """Tạo một cá thể mới từ đầu + repair + objectives."""
+    """
+    [G] Helper tạo cá thể mới đạt chuẩn.
+    Quy trình: Khởi tạo (Biased/Circle) -> Repair HC -> Soft Repair (Big Match) -> Score Objectives.
+    Đảm bảo các cá thể mới đưa vào quần thể luôn ở trạng thái "sẵn sàng thi đấu".
+    """
     fn  = random.choice([_create_round_robin_individual, _create_biased_individual])
     ind = fn(tournament)
     repair_individual(ind, tournament)
@@ -525,9 +567,14 @@ def _make_new_individual(tournament):
 
 def inject_diversity(population, tournament, inject_count, aggressive=True):
     """
-    Thay thế inject_count cá thể kém nhất:
-      60% → đột biến mạnh từ rank-0 (chọn ngẫu nhiên [J])
-      40% → cá thể hoàn toàn mới
+    [I] Cơ chế tiêm đa dạng hóa chủ động (Diversity Injection).
+
+    Ứng dụng: Phá vỡ sự bế tắc khi quần thể quá giống nhau.
+    Cơ chế:
+      - 60% Đột biến sâu (Hyper-mutation): Lấy các nghiệm Pareto tốt nhất và biến đổi mạnh 80%.
+      - 40% Tái tạo (Re-initialization): Đưa vào các cá thể mới hoàn toàn.
+    
+    Mục đích: Đẩy thuật toán ra khỏi các vùng lõm cục bộ để tìm kiếm các vùng Pareto mới.
     """
     population.sort(key=lambda ind: (ind.rank, -getattr(ind, "crowding_distance", 0.0)))
     keep  = population[:-inject_count]
@@ -551,11 +598,13 @@ def inject_diversity(population, tournament, inject_count, aggressive=True):
 
 def partial_restart(population, tournament, n_new, elitism_count, archive=None):
     """
-    Giữ lại elitism_count cá thể tốt nhất (feasible rank-0),
-    tạo mới n_new cá thể.
+    [R] Tái khởi động một phần (Partial Recovery/Restart).
 
-    [J] Seed từ archive theo random sample, không lấy archive[:k] cố định.
-    [L] Ưu tiên giữ nghiệm đa dạng từ archive vì Pareto front rộng hơn.
+    Ứng dụng: Khôi phục khả năng tìm kiếm sau một thời gian dài không cải thiện Hypervolume.
+    Cơ chế:
+      1. Elitism: Giữ lại những nghiệm tốt nhất hiện tại.
+      2. Archive Seeding: Lấy mẫu ngẫu nhiên từ Pareto Archive để tái khám phá các hướng trade-off.
+      3. New Blood: Bổ sung cá thể mới để tăng tính Exploration.
     """
     rank0     = [ind for ind in population if getattr(ind, "rank", 999) == 0
                  and getattr(ind, "is_feasible", False)]
@@ -569,7 +618,7 @@ def partial_restart(population, tournament, n_new, elitism_count, archive=None):
         compute_objectives(ind, tournament)
         new_inds.append(ind)
 
-    # [J] Seed từ archive NGẪU NHIÊN
+    #  Seed từ archive NGẪU NHIÊN
     if archive:
         seed_count = min(elitism_count, len(archive))
         archive_seeds = random.sample(archive, seed_count)
@@ -586,11 +635,23 @@ def partial_restart(population, tournament, n_new, elitism_count, archive=None):
 
 
 # ============================================================
-# HYPERVOLUME (Monte Carlo) — [B]
+# HYPERVOLUME (Monte Carlo) — 
 # ============================================================
 
 def _hypervolume_mc(front, ref_point, n_samples=2000):
-    """Ước lượng hypervolume của Pareto front bằng Monte Carlo."""
+    """
+    [M][B] Ước lượng chỉ số Hypervolume (HV) bằng phương pháp Monte Carlo.
+
+    Ứng dụng:
+      HV là thước đo hợp nhất phản ánh cả tính Hội tụ (Convergence) và độ Trải rộng (Diversity).
+      Nó đại diện cho "lợi ích" mà tập Pareto mang lại trong không gian mục tiêu F1, F2, F3.
+
+    Cơ chế:
+      Sử dụng lấy mẫu ngẫu nhiên để ước tính thể tích vùng bị lấn át. MC giúp giảm 
+      độ phức tạp tính toán từ O(n log n) xuống O(n_samples) trong không gian đa chiều.
+
+    Sử dụng khi nào: Gọi định kỳ để kiểm soát hiện tượng Stagnation (dậm chân tại chỗ).
+    """
     feasible = [ind for ind in front if getattr(ind, "is_feasible", False)]
     if not feasible:
         return 0.0
@@ -616,7 +677,15 @@ def _hypervolume_mc(front, ref_point, n_samples=2000):
 
 
 def _build_ref_point(fronts, margin=0.5):
-    """Xây reference point từ worst objectives trong quần thể."""
+    """
+    [B] Thiết lập điểm tham chiếu (Reference Point/Nadir Point) cho đo lường.
+
+    Ứng dụng:
+      Xác định ranh giới "xấu nhất" để làm gốc tính toán thể tích Hypervolume.
+      Điểm này phải luôn đảm bảo lấn át mọi cá thể trong Pareto front.
+
+    Sử dụng khi nào: Khởi tạo lúc bắt đầu thuật toán và cập nhật khi mở rộng không gian tìm kiếm.
+    """
     all_inds = [ind for f in fronts for ind in f if getattr(ind, "is_feasible", False)]
     if not all_inds:
         return (50_000.0, 50_000.0, 50_000.0)
@@ -642,7 +711,7 @@ def pick_representative(pareto, strategy="balanced"):
       "broadcast" — F3 (Vận hành/Phát sóng) nhỏ nhất
       "knee"      — điểm knee (xa nhất so với đường thẳng hai đầu)
 
-    [L] "ops" → đổi tên thành "quality" cho phù hợp với F2 mới.
+     "ops" → đổi tên thành "quality" cho phù hợp với F2 mới.
         Backward compat: "ops" vẫn hoạt động → map về "quality".
     """
     if not pareto:
@@ -698,11 +767,6 @@ def run_nsga2(tournament, params=None):
     """
     Chạy NSGA-II đa mục tiêu với Pareto front đa dạng hóa.
 
-    [L] Sau khi tách objectives (Hướng 4), kỳ vọng:
-      - Pareto front rộng hơn (nhiều nghiệm hơn)
-      - HV tăng chậm hơn nhưng spread lớn hơn
-      - archive_size thường đạt max do front thật sự đa dạng
-
     Parameters
     ----------
     tournament : Tournament
@@ -747,7 +811,7 @@ def run_nsga2(tournament, params=None):
 
     inject_count = max(1, int(pop_size * inject_ratio))
 
-    # [K] Tạo reference points một lần
+    #  Tạo reference points một lần
     ref_points = generate_reference_points(n_obj=3, n_divisions=ref_divisions)
 
     def _fmin(f0, idx):
@@ -756,10 +820,10 @@ def run_nsga2(tournament, params=None):
 
     # ── 1. Khởi tạo quần thể ──────────────────────────────────
     print(f"\n{'='*72}")
-    print(f"[NSGA-II][L] Giải: {getattr(tournament, 'name', '?')} | "
+    print(f"[NSGA-II] Giải: {getattr(tournament, 'name', '?')} | "
           f"{tournament.num_teams} đội | {tournament.num_rounds} vòng | "
           f"{tournament.num_teams * (tournament.num_teams - 1)} trận")
-    print(f"[NSGA-II][L] Phân nhóm objectives (Hướng 4 — conflict thật):")
+    print(f"[NSGA-II] Phân nhóm objectives (Hướng 4 — conflict thật):")
     print(f"  F1 Công bằng đội    : {', '.join(KEYS_F1)}")
     print(f"  F2 Chất lượng trận  : {', '.join(KEYS_F2)}")
     print(f"  F3 Vận hành/Phát sóng: {', '.join(KEYS_F3)}")
@@ -788,11 +852,11 @@ def run_nsga2(tournament, params=None):
     ref_point = _build_ref_point(fronts)
     hv        = _hypervolume_mc(fronts[0], ref_point)
 
-    # [E] Khởi tạo external archive với niche-based
+    #  Khởi tạo external archive với niche-based
     archive = update_archive([], fronts[0], archive_max,
                              n_niches=archive_niches, epsilon=archive_eps)
 
-    # [D] Trung bình trượt HV
+    #  Trung bình trượt HV
     hv_history_window = deque([hv] * hv_window, maxlen=hv_window)
     best_hv_avg = hv
 
@@ -800,12 +864,13 @@ def run_nsga2(tournament, params=None):
     mut_rate = base_mut
     history  = []
 
-    # [K] Niche count ban đầu
+    #  Niche count ban đầu
     niche_count = associate_to_reference_points(
         [ind for ind in population if getattr(ind, "is_feasible", False)],
         ref_points
     )
 
+    # Đếm số lượng cá thể hợp lệ (không vi phạm ràng buộc cứng) trong quần thể khởi tạo
     feasible_init = sum(1 for ind in population if getattr(ind, "is_feasible", False))
     print(f"[NSGA-II] Khởi tạo xong — feasible: {feasible_init}/{pop_size} | "
           f"Front-0: {len(fronts[0])} cá thể | Archive: {len(archive)} | "
@@ -816,7 +881,7 @@ def run_nsga2(tournament, params=None):
 
     for gen in range(1, num_gen + 1):
 
-        # ── [A] Adaptive tournament_size ──────────────────────
+        # ──  Adaptive tournament_size ──────────────────────
         tourn_k = _adaptive_tournament_k(tourn_k_base, tourn_k_max, gen, num_gen)
 
         # ── Adaptive mutation rate ─────────────────────────────
@@ -827,7 +892,7 @@ def run_nsga2(tournament, params=None):
             mut_rate = base_mut
         aggressive = stag >= agg_after
 
-        # ── [K] Cập nhật niche count mỗi 5 thế hệ ────────────
+        # ──  Cập nhật niche count mỗi 5 thế hệ ────────────
         if gen % 5 == 0:
             feasible_pop = [ind for ind in population if getattr(ind, "is_feasible", False)]
             niche_count = associate_to_reference_points(feasible_pop, ref_points)
@@ -846,7 +911,7 @@ def run_nsga2(tournament, params=None):
             archive = update_archive(archive, top_inds, archive_max,
                                      n_niches=archive_niches, epsilon=archive_eps)
 
-        # ── [J] Partial restart khi stagnation kéo dài ────────
+        # ──  Partial restart khi stagnation kéo dài ────────
         if stag > 0 and stag % restart_lim == 0:
             n_new     = pop_size // 3
             elitism_k = max(4, pop_size // 6)
@@ -885,7 +950,7 @@ def run_nsga2(tournament, params=None):
             for front in fronts:
                 crowding_distance_assignment(front)
 
-        # ── [G] Xác định offspring_size (oversampling) ────────
+        # ──  Xác định offspring_size (oversampling) ────────
         if stag >= oversample_aft:
             offspring_size = int(pop_size * oversample_f)
         else:
@@ -969,11 +1034,11 @@ def run_nsga2(tournament, params=None):
         for front in fronts:
             crowding_distance_assignment(front)
 
-        # [E] Cập nhật niche-based archive sau mỗi thế hệ
+        #  Cập nhật niche-based archive sau mỗi thế hệ
         archive = update_archive(archive, fronts[0], archive_max,
                                  n_niches=archive_niches, epsilon=archive_eps)
 
-        # ── [B][D] Cập nhật hypervolume & stagnation ──────────
+        # ──  Cập nhật hypervolume & stagnation ──────────
         if gen % HV_INTERVAL == 0:
             hv = _hypervolume_mc(fronts[0], ref_point)
             hv_history_window.append(hv)
@@ -1015,6 +1080,8 @@ def run_nsga2(tournament, params=None):
                 f1_vals = [ind.objectives[0] for ind in archive]
                 f2_vals = [ind.objectives[1] for ind in archive]
                 f3_vals = [ind.objectives[2] for ind in archive]
+                # Spread là tổng khoảng cách bao phủ của tập Pareto trên cả 3 chiều mục tiêu.
+                # Giúp đánh giá khả năng tìm kiếm các phương án trade-off đa dạng.
                 spread = (max(f1_vals) - min(f1_vals) +
                           max(f2_vals) - min(f2_vals) +
                           max(f3_vals) - min(f3_vals))

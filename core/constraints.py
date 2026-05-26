@@ -284,20 +284,41 @@ def soft_season_edge_balance(matches, num_teams, num_rounds, edge_size=5, max_co
 
 
 def soft_no_consec_big_team(matches, num_teams, tournament, threshold=8):
+    """
+    Ràng buộc mềm: Hạn chế một đội phải gặp 2 đối thủ mạnh liên tiếp.
+    
+    Args:
+        matches: Danh sách các trận đấu hiện tại.
+        num_teams: Tổng số đội trong giải.
+        tournament: Đối tượng Tournament chứa dữ liệu champ_potential.
+        threshold: Ngưỡng điểm tiềm năng để xác định "đội bóng lớn" (mặc định là 8).
+        
+    Returns:
+        int: Số lần vi phạm (số cặp vòng đấu liên tiếp gặp đối thủ mạnh).
+    """
     penalty  = 0
-    schedule = defaultdict(dict)
+    schedule = defaultdict(dict) # Map: team_id -> {round -> (opponent_id, is_home)}
+    
+    # Bước 1: Chuyển đổi danh sách trận đấu thành cấu trúc lịch trình theo từng đội
     for m in matches:
         schedule[m.home_team_id][m.round] = (m.away_team_id, True)
         schedule[m.away_team_id][m.round] = (m.home_team_id, False)
 
+    # Bước 2: Duyệt qua từng đội để kiểm tra các vòng đấu liên tiếp
     for team_id in range(num_teams):
         rounds = sorted(schedule[team_id].keys())
         for i in range(len(rounds) - 1):
-            r1, r2 = rounds[i], rounds[i + 1]
+            r1, r2 = rounds[i], rounds[i + 1] # Lấy hai vòng đấu xuất hiện trong lịch
+            
+            # Chỉ xử lý nếu hai vòng đấu này thực sự sát nhau (ví dụ: vòng 5 và vòng 6)
             if r2 != r1 + 1:
                 continue
+                
+            # Lấy thông tin đối thủ tại hai thời điểm đó
             opp1, _ = schedule[team_id][r1]
             opp2, _ = schedule[team_id][r2]
+            
+            # Bước 3: Kiểm tra nếu cả hai đối thủ đều là "ông lớn" dựa trên ngưỡng threshold
             if (tournament.get_champ_potential(opp1) >= threshold and
                     tournament.get_champ_potential(opp2) >= threshold):
                 penalty += 1

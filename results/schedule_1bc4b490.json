@@ -1,0 +1,398 @@
+{
+  "label": "Lịch tối ưu (GA)",
+  "total_matches": 56,
+  "matches": [
+    {
+      "round": 1,
+      "home_team": "Arsenal",
+      "away_team": "Crystal Palace",
+      "stadium": "Emirates Stadium",
+      "time": "2024-08-21 15:00"
+    },
+    {
+      "round": 1,
+      "home_team": "Aston Villa",
+      "away_team": "Everton",
+      "stadium": "Villa Park",
+      "time": "2024-08-21 17:00"
+    },
+    {
+      "round": 1,
+      "home_team": "Fulham",
+      "away_team": "Brentford",
+      "stadium": "Craven Cottage",
+      "time": "2024-08-21 20:00"
+    },
+    {
+      "round": 1,
+      "home_team": "Brighton",
+      "away_team": "Chelsea",
+      "stadium": "Amex Stadium",
+      "time": "2024-08-16 20:00"
+    },
+    {
+      "round": 2,
+      "home_team": "Aston Villa",
+      "away_team": "Arsenal",
+      "stadium": "Villa Park",
+      "time": "2024-08-28 12:00"
+    },
+    {
+      "round": 2,
+      "home_team": "Chelsea",
+      "away_team": "Fulham",
+      "stadium": "Stamford Bridge",
+      "time": "2024-08-28 20:00"
+    },
+    {
+      "round": 2,
+      "home_team": "Everton",
+      "away_team": "Brighton",
+      "stadium": "Goodison Park",
+      "time": "2024-08-26 19:00"
+    },
+    {
+      "round": 2,
+      "home_team": "Crystal Palace",
+      "away_team": "Brentford",
+      "stadium": "Selhurst Park",
+      "time": "2024-08-29 20:00"
+    },
+    {
+      "round": 3,
+      "home_team": "Arsenal",
+      "away_team": "Fulham",
+      "stadium": "Emirates Stadium",
+      "time": "2024-09-04 17:00"
+    },
+    {
+      "round": 3,
+      "home_team": "Crystal Palace",
+      "away_team": "Brighton",
+      "stadium": "Selhurst Park",
+      "time": "2024-09-05 14:00"
+    },
+    {
+      "round": 3,
+      "home_team": "Everton",
+      "away_team": "Chelsea",
+      "stadium": "Goodison Park",
+      "time": "2024-09-05 16:00"
+    },
+    {
+      "round": 3,
+      "home_team": "Brentford",
+      "away_team": "Aston Villa",
+      "stadium": "Gtech Community Stadium",
+      "time": "2024-09-05 11:00"
+    },
+    {
+      "round": 4,
+      "home_team": "Aston Villa",
+      "away_team": "Brighton",
+      "stadium": "Villa Park",
+      "time": "2024-09-11 15:00"
+    },
+    {
+      "round": 4,
+      "home_team": "Crystal Palace",
+      "away_team": "Chelsea",
+      "stadium": "Selhurst Park",
+      "time": "2024-09-11 17:00"
+    },
+    {
+      "round": 4,
+      "home_team": "Brentford",
+      "away_team": "Arsenal",
+      "stadium": "Gtech Community Stadium",
+      "time": "2024-09-08 19:00"
+    },
+    {
+      "round": 4,
+      "home_team": "Everton",
+      "away_team": "Fulham",
+      "stadium": "Goodison Park",
+      "time": "2024-09-12 11:00"
+    },
+    {
+      "round": 5,
+      "home_team": "Fulham",
+      "away_team": "Aston Villa",
+      "stadium": "Craven Cottage",
+      "time": "2024-09-17 20:00"
+    },
+    {
+      "round": 5,
+      "home_team": "Arsenal",
+      "away_team": "Brighton",
+      "stadium": "Emirates Stadium",
+      "time": "2024-09-18 17:00"
+    },
+    {
+      "round": 5,
+      "home_team": "Everton",
+      "away_team": "Crystal Palace",
+      "stadium": "Goodison Park",
+      "time": "2024-09-18 20:00"
+    },
+    {
+      "round": 5,
+      "home_team": "Brentford",
+      "away_team": "Chelsea",
+      "stadium": "Gtech Community Stadium",
+      "time": "2024-09-19 16:00"
+    },
+    {
+      "round": 6,
+      "home_team": "Crystal Palace",
+      "away_team": "Aston Villa",
+      "stadium": "Selhurst Park",
+      "time": "2024-09-24 20:00"
+    },
+    {
+      "round": 6,
+      "home_team": "Brighton",
+      "away_team": "Fulham",
+      "stadium": "Amex Stadium",
+      "time": "2024-09-26 14:00"
+    },
+    {
+      "round": 6,
+      "home_team": "Everton",
+      "away_team": "Brentford",
+      "stadium": "Goodison Park",
+      "time": "2024-09-23 19:00"
+    },
+    {
+      "round": 6,
+      "home_team": "Chelsea",
+      "away_team": "Arsenal",
+      "stadium": "Stamford Bridge",
+      "time": "2024-09-26 20:00"
+    },
+    {
+      "round": 7,
+      "home_team": "Brighton",
+      "away_team": "Brentford",
+      "stadium": "Amex Stadium",
+      "time": "2024-10-02 12:00"
+    },
+    {
+      "round": 7,
+      "home_team": "Arsenal",
+      "away_team": "Everton",
+      "stadium": "Emirates Stadium",
+      "time": "2024-10-02 15:00"
+    },
+    {
+      "round": 7,
+      "home_team": "Crystal Palace",
+      "away_team": "Fulham",
+      "stadium": "Selhurst Park",
+      "time": "2024-10-03 14:00"
+    },
+    {
+      "round": 7,
+      "home_team": "Chelsea",
+      "away_team": "Aston Villa",
+      "stadium": "Stamford Bridge",
+      "time": "2024-10-03 14:00"
+    },
+    {
+      "round": 8,
+      "home_team": "Brighton",
+      "away_team": "Crystal Palace",
+      "stadium": "Amex Stadium",
+      "time": "2024-10-08 20:00"
+    },
+    {
+      "round": 8,
+      "home_team": "Chelsea",
+      "away_team": "Everton",
+      "stadium": "Stamford Bridge",
+      "time": "2024-10-09 17:00"
+    },
+    {
+      "round": 8,
+      "home_team": "Aston Villa",
+      "away_team": "Brentford",
+      "stadium": "Villa Park",
+      "time": "2024-10-09 20:00"
+    },
+    {
+      "round": 8,
+      "home_team": "Fulham",
+      "away_team": "Arsenal",
+      "stadium": "Craven Cottage",
+      "time": "2024-10-10 16:00"
+    },
+    {
+      "round": 9,
+      "home_team": "Brentford",
+      "away_team": "Fulham",
+      "stadium": "Gtech Community Stadium",
+      "time": "2024-10-16 12:00"
+    },
+    {
+      "round": 9,
+      "home_team": "Chelsea",
+      "away_team": "Brighton",
+      "stadium": "Stamford Bridge",
+      "time": "2024-10-16 15:00"
+    },
+    {
+      "round": 9,
+      "home_team": "Everton",
+      "away_team": "Aston Villa",
+      "stadium": "Goodison Park",
+      "time": "2024-10-17 14:00"
+    },
+    {
+      "round": 9,
+      "home_team": "Crystal Palace",
+      "away_team": "Arsenal",
+      "stadium": "Selhurst Park",
+      "time": "2024-10-17 16:00"
+    },
+    {
+      "round": 10,
+      "home_team": "Brentford",
+      "away_team": "Brighton",
+      "stadium": "Gtech Community Stadium",
+      "time": "2024-10-23 12:00"
+    },
+    {
+      "round": 10,
+      "home_team": "Fulham",
+      "away_team": "Crystal Palace",
+      "stadium": "Craven Cottage",
+      "time": "2024-10-24 14:00"
+    },
+    {
+      "round": 10,
+      "home_team": "Everton",
+      "away_team": "Arsenal",
+      "stadium": "Goodison Park",
+      "time": "2024-10-21 19:00"
+    },
+    {
+      "round": 10,
+      "home_team": "Aston Villa",
+      "away_team": "Chelsea",
+      "stadium": "Villa Park",
+      "time": "2024-10-24 20:00"
+    },
+    {
+      "round": 11,
+      "home_team": "Aston Villa",
+      "away_team": "Crystal Palace",
+      "stadium": "Villa Park",
+      "time": "2024-10-30 12:00"
+    },
+    {
+      "round": 11,
+      "home_team": "Arsenal",
+      "away_team": "Chelsea",
+      "stadium": "Emirates Stadium",
+      "time": "2024-10-30 15:00"
+    },
+    {
+      "round": 11,
+      "home_team": "Fulham",
+      "away_team": "Brighton",
+      "stadium": "Craven Cottage",
+      "time": "2024-10-31 16:00"
+    },
+    {
+      "round": 11,
+      "home_team": "Brentford",
+      "away_team": "Everton",
+      "stadium": "Gtech Community Stadium",
+      "time": "2024-10-31 16:00"
+    },
+    {
+      "round": 12,
+      "home_team": "Aston Villa",
+      "away_team": "Fulham",
+      "stadium": "Villa Park",
+      "time": "2024-11-06 12:00"
+    },
+    {
+      "round": 12,
+      "home_team": "Brighton",
+      "away_team": "Arsenal",
+      "stadium": "Amex Stadium",
+      "time": "2024-11-07 14:00"
+    },
+    {
+      "round": 12,
+      "home_team": "Crystal Palace",
+      "away_team": "Everton",
+      "stadium": "Selhurst Park",
+      "time": "2024-11-07 11:00"
+    },
+    {
+      "round": 12,
+      "home_team": "Chelsea",
+      "away_team": "Brentford",
+      "stadium": "Stamford Bridge",
+      "time": "2024-11-07 20:00"
+    },
+    {
+      "round": 13,
+      "home_team": "Brighton",
+      "away_team": "Everton",
+      "stadium": "Amex Stadium",
+      "time": "2024-11-13 17:00"
+    },
+    {
+      "round": 13,
+      "home_team": "Brentford",
+      "away_team": "Crystal Palace",
+      "stadium": "Gtech Community Stadium",
+      "time": "2024-11-13 20:00"
+    },
+    {
+      "round": 13,
+      "home_team": "Arsenal",
+      "away_team": "Aston Villa",
+      "stadium": "Emirates Stadium",
+      "time": "2024-11-11 19:00"
+    },
+    {
+      "round": 13,
+      "home_team": "Fulham",
+      "away_team": "Chelsea",
+      "stadium": "Craven Cottage",
+      "time": "2024-11-11 19:00"
+    },
+    {
+      "round": 14,
+      "home_team": "Chelsea",
+      "away_team": "Crystal Palace",
+      "stadium": "Stamford Bridge",
+      "time": "2024-11-18 19:00"
+    },
+    {
+      "round": 14,
+      "home_team": "Brighton",
+      "away_team": "Aston Villa",
+      "stadium": "Amex Stadium",
+      "time": "2024-11-21 11:00"
+    },
+    {
+      "round": 14,
+      "home_team": "Fulham",
+      "away_team": "Everton",
+      "stadium": "Craven Cottage",
+      "time": "2024-11-21 11:00"
+    },
+    {
+      "round": 14,
+      "home_team": "Arsenal",
+      "away_team": "Brentford",
+      "stadium": "Emirates Stadium",
+      "time": "2024-11-21 20:00"
+    }
+  ]
+}

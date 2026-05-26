@@ -12,10 +12,10 @@ from constraints import count_hard_violations, count_soft_penalties
 # ============================================================
 
 DEFAULT_PARAMS = {
-    "population_size":       120,
-    "num_generations":       100,
-    "crossover_rate":        0.88,
-    "mutation_rate":         0.28,
+    "population_size":       150,
+    "num_generations":       300,
+    "crossover_rate":        0.85,
+    "mutation_rate":         0.15,
     "tournament_size":       8,
     "elitism_count":         8,
     "stagnation_limit":      12,
@@ -391,7 +391,17 @@ def local_search_big_match_chain(individual, tournament, max_iter=25):
 # ============================================================
 
 def tournament_selection(population, tournament_size):
-    return max(random.sample(population, tournament_size), key=lambda ind: ind.fitness)
+    """
+    Chọn cá thể tốt nhất từ một nhóm ngẫu nhiên để làm cha mẹ.
+    
+    Args:
+        population: Danh sách các cá thể hiện tại.
+        tournament_size: Số lượng cá thể tham gia đấu loại (k).
+    Returns:
+        Individual: Cá thể chiến thắng có fitness cao nhất.
+    """
+    k = min(len(population), tournament_size)
+    return max(random.sample(population, k), key=lambda ind: ind.fitness)
 
 
 def rank_based_selection(population):
@@ -1008,6 +1018,7 @@ def partial_restart(population, tournament, restart_count, elitism_count):
 # ============================================================
 
 def run_ga(tournament, params=None):
+    """Vòng lặp chính của thuật toán di truyền (GA) để tối ưu lịch thi đấu."""
     start_time = time.time()
     p = params or DEFAULT_PARAMS
     pop_size      = p["population_size"]
@@ -1021,6 +1032,7 @@ def run_ga(tournament, params=None):
     ls_interval   = p.get("local_search_interval", 4)
     ls_topk       = p.get("local_search_top_k", 12)
 
+    # 1. Khởi tạo quần thể và tính fitness ban đầu
     population = create_population(tournament, pop_size)
     print("Repair + tính fitness quần thể ban đầu...")
     for ind in population:
@@ -1035,11 +1047,14 @@ def run_ga(tournament, params=None):
     print(f"Fitness ban đầu tốt nhất: {best.fitness}")
     print(f"Bắt đầu tiến hóa ({num_gen} thế hệ)...\n")
 
+    # 2. Vòng lặp tiến hóa qua từng thế hệ
     for gen in range(1, num_gen + 1):
+        # Kiểm tra trạng thái trì trệ để điều chỉnh độ "hung hãn" của đột biến
         aggressive = stag >= stag_lim
         cur_mut = min(0.5, mut_rate * (1 + stag / stag_lim)) if aggressive else mut_rate
 
         if gen % ls_interval == 0:
+            # 3. Tìm kiếm cục bộ (Local Search) cho các cá thể ưu tú
             for elite in sorted(population, key=lambda ind: ind.fitness, reverse=True)[:ls_topk]:
                 local_search_timeslot(elite, tournament, max_iter=25)
                 local_search_round_swap(elite, tournament, max_iter=15)
@@ -1048,13 +1063,16 @@ def run_ga(tournament, params=None):
                 calculate_fitness(elite, tournament)
 
         if stag > 0 and stag % restart_lim == 0:
+            # 4. Khởi động lại một phần nếu không có cải thiện trong thời gian dài
             population = partial_restart(population, tournament, pop_size - elitism, elitism)
             print(f"  [Gen {gen}] FULL RESTART (stagnation={stag})")
 
+        # 5. Chọn lọc và tạo thế hệ mới (Elitism)
         sorted_pop = sorted(population, key=lambda ind: ind.fitness, reverse=True)
         new_pop = [copy.deepcopy(ind) for ind in sorted_pop[:elitism]]
 
         while len(new_pop) < pop_size:
+            # Chọn cặp cha mẹ (Sử dụng 70% Tournament, 30% Rank-based)
             if random.random() < 0.7:
                 p1 = tournament_selection(population, tourn_size)
                 p2 = tournament_selection(population, tourn_size)
@@ -1062,9 +1080,11 @@ def run_ga(tournament, params=None):
                 p1 = rank_based_selection(population)
                 p2 = rank_based_selection(population)
 
+            # Thực hiện lai ghép
             c1, c2 = crossover(p1, p2, tournament) if random.random() < cx_rate \
                 else (copy.deepcopy(p1), copy.deepcopy(p2))
 
+            # Thực hiện đột biến và sửa lỗi ngay sau đó
             c1 = mutate(c1, tournament, cur_mut, aggressive)
             c2 = mutate(c2, tournament, cur_mut, aggressive)
             for c in (c1, c2):
@@ -1074,6 +1094,7 @@ def run_ga(tournament, params=None):
 
         population = new_pop[:pop_size]
 
+        # 6. Tinh chỉnh chuyên sâu cho nhóm ưu tú nhất (Big Matches, Alternation)
         for ind in population[:elitism * 2]:
             repair_no_consec_big_team(ind, tournament)
             repair_big_match_alternation(ind, tournament)
@@ -1081,6 +1102,7 @@ def run_ga(tournament, params=None):
             calculate_fitness(ind, tournament)
 
         cur_best = max(population, key=lambda ind: ind.fitness)
+        # Cập nhật kết quả tốt nhất toàn cục
         if cur_best.fitness > best.fitness:
             best, stag = copy.deepcopy(cur_best), 0
         else:
@@ -1088,6 +1110,7 @@ def run_ga(tournament, params=None):
 
         history.append(best.fitness)
 
+        # In log định kỳ
         if gen % 2 == 0:
             avg = sum(ind.fitness for ind in population) / pop_size
             div = _population_diversity(population)
@@ -1096,6 +1119,7 @@ def run_ga(tournament, params=None):
             print(f"Gen {gen:4d} | Best: {best.fitness:8.0f} | Avg: {avg:8.0f} "
                   f"| Div: {div:.2f} TsDiv: {ts_div:.2f} | Mut: {cur_mut:.3f}{mode}")
 
+        # Dừng sớm nếu đạt kết quả tối ưu tuyệt đối
         if best.fitness == 0:
             print(f"\nLịch hoàn hảo tại thế hệ {gen}!")
             break
@@ -1150,6 +1174,7 @@ if __name__ == "__main__":
         "home_distribution",
         "min_rest_days",
         "season_edge_balance",
+        "no_more_than_3_consecutive",
     ],
     "F2 — Chất lượng trận": [
         "derby_distribution",
