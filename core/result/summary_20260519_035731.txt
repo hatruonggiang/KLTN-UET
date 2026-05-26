@@ -1,0 +1,36 @@
+=== KẾT QUẢ GA SCHEDULING ===
+Thời gian : 2026-05-19 03:57:31
+Tournament: Mini League 16 Teams
+Số đội    : 16 | Số trận: 240
+Fitness   : -160
+
+--- RÀNG BUỘC CỨNG ---
+  ✓ each_pair_twice                    : 0
+  ✓ one_match_per_round                : 0
+  ✓ no_same_stadium_timeslot           : 0
+
+--- RÀNG BUỘC MỀM ---
+  [F1 — Công bằng đội]
+    ✓ home_away_balance           : 0
+    - home_distribution           : 6
+    - min_rest_days               : 1
+    - season_edge_balance         : 17
+  [F2 — Chất lượng trận]
+    ✓ derby_distribution          : 0
+    - no_derby_same_round         : 4
+    - no_consec_big_team          : 54
+    ✓ big_match_half_balance      : 0
+    - big_match_monthly           : 1
+    ✓ big_match_alternation       : 0
+  [F3 — Vận hành/Phát sóng]
+    ✓ prime_timeslot_fairness     : 0
+    ✓ no_timeslot_overload        : 0
+    - travel_distance_balance     : 3
+
+  Tổng soft penalty: 86
+
+--- TIẾN HOÁ ---
+  Gen   1: -852
+  Gen 150: -164
+  Gen 300: -160
+  Cải thiện: 692

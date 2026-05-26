@@ -1,0 +1,549 @@
+{
+  "tournament": "Mini League 10 Teams",
+  "num_teams": 10,
+  "fitness": -152,
+  "num_matches": 90,
+  "timestamp": "20260519_063110",
+  "matches": [
+    {
+      "round": 10,
+      "timeslot_id": 0,
+      "home_team_id": 0,
+      "away_team_id": 9
+    },
+    {
+      "round": 7,
+      "timeslot_id": 6,
+      "home_team_id": 1,
+      "away_team_id": 8
+    },
+    {
+      "round": 7,
+      "timeslot_id": 10,
+      "home_team_id": 2,
+      "away_team_id": 7
+    },
+    {
+      "round": 8,
+      "timeslot_id": 10,
+      "home_team_id": 3,
+      "away_team_id": 6
+    },
+    {
+      "round": 7,
+      "timeslot_id": 4,
+      "home_team_id": 4,
+      "away_team_id": 5
+    },
+    {
+      "round": 2,
+      "timeslot_id": 8,
+      "home_team_id": 0,
+      "away_team_id": 8
+    },
+    {
+      "round": 2,
+      "timeslot_id": 7,
+      "home_team_id": 9,
+      "away_team_id": 7
+    },
+    {
+      "round": 2,
+      "timeslot_id": 3,
+      "home_team_id": 1,
+      "away_team_id": 6
+    },
+    {
+      "round": 2,
+      "timeslot_id": 2,
+      "home_team_id": 2,
+      "away_team_id": 5
+    },
+    {
+      "round": 2,
+      "timeslot_id": 5,
+      "home_team_id": 3,
+      "away_team_id": 4
+    },
+    {
+      "round": 12,
+      "timeslot_id": 7,
+      "home_team_id": 0,
+      "away_team_id": 7
+    },
+    {
+      "round": 12,
+      "timeslot_id": 9,
+      "home_team_id": 8,
+      "away_team_id": 6
+    },
+    {
+      "round": 12,
+      "timeslot_id": 6,
+      "home_team_id": 9,
+      "away_team_id": 5
+    },
+    {
+      "round": 5,
+      "timeslot_id": 5,
+      "home_team_id": 3,
+      "away_team_id": 9
+    },
+    {
+      "round": 12,
+      "timeslot_id": 6,
+      "home_team_id": 2,
+      "away_team_id": 3
+    },
+    {
+      "round": 13,
+      "timeslot_id": 7,
+      "home_team_id": 0,
+      "away_team_id": 6
+    },
+    {
+      "round": 13,
+      "timeslot_id": 5,
+      "home_team_id": 7,
+      "away_team_id": 5
+    },
+    {
+      "round": 5,
+      "timeslot_id": 10,
+      "home_team_id": 8,
+      "away_team_id": 4
+    },
+    {
+      "round": 13,
+      "timeslot_id": 7,
+      "home_team_id": 9,
+      "away_team_id": 3
+    },
+    {
+      "round": 13,
+      "timeslot_id": 6,
+      "home_team_id": 1,
+      "away_team_id": 2
+    },
+    {
+      "round": 4,
+      "timeslot_id": 1,
+      "home_team_id": 0,
+      "away_team_id": 5
+    },
+    {
+      "round": 4,
+      "timeslot_id": 6,
+      "home_team_id": 6,
+      "away_team_id": 4
+    },
+    {
+      "round": 4,
+      "timeslot_id": 1,
+      "home_team_id": 7,
+      "away_team_id": 3
+    },
+    {
+      "round": 4,
+      "timeslot_id": 1,
+      "home_team_id": 8,
+      "away_team_id": 2
+    },
+    {
+      "round": 4,
+      "timeslot_id": 2,
+      "home_team_id": 9,
+      "away_team_id": 1
+    },
+    {
+      "round": 6,
+      "timeslot_id": 0,
+      "home_team_id": 0,
+      "away_team_id": 4
+    },
+    {
+      "round": 6,
+      "timeslot_id": 4,
+      "home_team_id": 5,
+      "away_team_id": 3
+    },
+    {
+      "round": 6,
+      "timeslot_id": 0,
+      "home_team_id": 6,
+      "away_team_id": 2
+    },
+    {
+      "round": 6,
+      "timeslot_id": 6,
+      "home_team_id": 7,
+      "away_team_id": 1
+    },
+    {
+      "round": 6,
+      "timeslot_id": 8,
+      "home_team_id": 8,
+      "away_team_id": 9
+    },
+    {
+      "round": 17,
+      "timeslot_id": 1,
+      "home_team_id": 0,
+      "away_team_id": 3
+    },
+    {
+      "round": 17,
+      "timeslot_id": 9,
+      "home_team_id": 4,
+      "away_team_id": 2
+    },
+    {
+      "round": 17,
+      "timeslot_id": 1,
+      "home_team_id": 5,
+      "away_team_id": 1
+    },
+    {
+      "round": 7,
+      "timeslot_id": 8,
+      "home_team_id": 6,
+      "away_team_id": 9
+    },
+    {
+      "round": 8,
+      "timeslot_id": 10,
+      "home_team_id": 7,
+      "away_team_id": 8
+    },
+    {
+      "round": 9,
+      "timeslot_id": 11,
+      "home_team_id": 0,
+      "away_team_id": 2
+    },
+    {
+      "round": 9,
+      "timeslot_id": 10,
+      "home_team_id": 3,
+      "away_team_id": 1
+    },
+    {
+      "round": 9,
+      "timeslot_id": 10,
+      "home_team_id": 4,
+      "away_team_id": 9
+    },
+    {
+      "round": 9,
+      "timeslot_id": 9,
+      "home_team_id": 5,
+      "away_team_id": 8
+    },
+    {
+      "round": 9,
+      "timeslot_id": 8,
+      "home_team_id": 6,
+      "away_team_id": 7
+    },
+    {
+      "round": 18,
+      "timeslot_id": 5,
+      "home_team_id": 0,
+      "away_team_id": 1
+    },
+    {
+      "round": 18,
+      "timeslot_id": 8,
+      "home_team_id": 2,
+      "away_team_id": 9
+    },
+    {
+      "round": 1,
+      "timeslot_id": 3,
+      "home_team_id": 3,
+      "away_team_id": 8
+    },
+    {
+      "round": 18,
+      "timeslot_id": 10,
+      "home_team_id": 4,
+      "away_team_id": 7
+    },
+    {
+      "round": 18,
+      "timeslot_id": 10,
+      "home_team_id": 5,
+      "away_team_id": 6
+    },
+    {
+      "round": 8,
+      "timeslot_id": 7,
+      "home_team_id": 9,
+      "away_team_id": 0
+    },
+    {
+      "round": 10,
+      "timeslot_id": 10,
+      "home_team_id": 8,
+      "away_team_id": 1
+    },
+    {
+      "round": 10,
+      "timeslot_id": 9,
+      "home_team_id": 7,
+      "away_team_id": 2
+    },
+    {
+      "round": 10,
+      "timeslot_id": 10,
+      "home_team_id": 6,
+      "away_team_id": 3
+    },
+    {
+      "round": 10,
+      "timeslot_id": 8,
+      "home_team_id": 5,
+      "away_team_id": 4
+    },
+    {
+      "round": 11,
+      "timeslot_id": 8,
+      "home_team_id": 8,
+      "away_team_id": 0
+    },
+    {
+      "round": 11,
+      "timeslot_id": 7,
+      "home_team_id": 7,
+      "away_team_id": 9
+    },
+    {
+      "round": 11,
+      "timeslot_id": 9,
+      "home_team_id": 6,
+      "away_team_id": 1
+    },
+    {
+      "round": 11,
+      "timeslot_id": 8,
+      "home_team_id": 5,
+      "away_team_id": 2
+    },
+    {
+      "round": 11,
+      "timeslot_id": 8,
+      "home_team_id": 4,
+      "away_team_id": 3
+    },
+    {
+      "round": 3,
+      "timeslot_id": 11,
+      "home_team_id": 7,
+      "away_team_id": 0
+    },
+    {
+      "round": 3,
+      "timeslot_id": 6,
+      "home_team_id": 6,
+      "away_team_id": 8
+    },
+    {
+      "round": 3,
+      "timeslot_id": 11,
+      "home_team_id": 5,
+      "away_team_id": 9
+    },
+    {
+      "round": 3,
+      "timeslot_id": 3,
+      "home_team_id": 4,
+      "away_team_id": 1
+    },
+    {
+      "round": 3,
+      "timeslot_id": 0,
+      "home_team_id": 3,
+      "away_team_id": 2
+    },
+    {
+      "round": 5,
+      "timeslot_id": 10,
+      "home_team_id": 6,
+      "away_team_id": 0
+    },
+    {
+      "round": 5,
+      "timeslot_id": 5,
+      "home_team_id": 5,
+      "away_team_id": 7
+    },
+    {
+      "round": 13,
+      "timeslot_id": 10,
+      "home_team_id": 4,
+      "away_team_id": 8
+    },
+    {
+      "round": 12,
+      "timeslot_id": 7,
+      "home_team_id": 1,
+      "away_team_id": 4
+    },
+    {
+      "round": 5,
+      "timeslot_id": 2,
+      "home_team_id": 2,
+      "away_team_id": 1
+    },
+    {
+      "round": 14,
+      "timeslot_id": 7,
+      "home_team_id": 5,
+      "away_team_id": 0
+    },
+    {
+      "round": 14,
+      "timeslot_id": 9,
+      "home_team_id": 4,
+      "away_team_id": 6
+    },
+    {
+      "round": 14,
+      "timeslot_id": 5,
+      "home_team_id": 3,
+      "away_team_id": 7
+    },
+    {
+      "round": 14,
+      "timeslot_id": 9,
+      "home_team_id": 2,
+      "away_team_id": 8
+    },
+    {
+      "round": 14,
+      "timeslot_id": 8,
+      "home_team_id": 1,
+      "away_team_id": 9
+    },
+    {
+      "round": 15,
+      "timeslot_id": 8,
+      "home_team_id": 4,
+      "away_team_id": 0
+    },
+    {
+      "round": 15,
+      "timeslot_id": 7,
+      "home_team_id": 3,
+      "away_team_id": 5
+    },
+    {
+      "round": 15,
+      "timeslot_id": 8,
+      "home_team_id": 2,
+      "away_team_id": 6
+    },
+    {
+      "round": 15,
+      "timeslot_id": 7,
+      "home_team_id": 1,
+      "away_team_id": 7
+    },
+    {
+      "round": 15,
+      "timeslot_id": 8,
+      "home_team_id": 9,
+      "away_team_id": 8
+    },
+    {
+      "round": 7,
+      "timeslot_id": 3,
+      "home_team_id": 3,
+      "away_team_id": 0
+    },
+    {
+      "round": 8,
+      "timeslot_id": 10,
+      "home_team_id": 2,
+      "away_team_id": 4
+    },
+    {
+      "round": 8,
+      "timeslot_id": 5,
+      "home_team_id": 1,
+      "away_team_id": 5
+    },
+    {
+      "round": 17,
+      "timeslot_id": 10,
+      "home_team_id": 9,
+      "away_team_id": 6
+    },
+    {
+      "round": 17,
+      "timeslot_id": 9,
+      "home_team_id": 8,
+      "away_team_id": 7
+    },
+    {
+      "round": 16,
+      "timeslot_id": 10,
+      "home_team_id": 2,
+      "away_team_id": 0
+    },
+    {
+      "round": 16,
+      "timeslot_id": 10,
+      "home_team_id": 1,
+      "away_team_id": 3
+    },
+    {
+      "round": 16,
+      "timeslot_id": 9,
+      "home_team_id": 9,
+      "away_team_id": 4
+    },
+    {
+      "round": 16,
+      "timeslot_id": 10,
+      "home_team_id": 8,
+      "away_team_id": 5
+    },
+    {
+      "round": 16,
+      "timeslot_id": 11,
+      "home_team_id": 7,
+      "away_team_id": 6
+    },
+    {
+      "round": 1,
+      "timeslot_id": 4,
+      "home_team_id": 1,
+      "away_team_id": 0
+    },
+    {
+      "round": 1,
+      "timeslot_id": 4,
+      "home_team_id": 9,
+      "away_team_id": 2
+    },
+    {
+      "round": 18,
+      "timeslot_id": 11,
+      "home_team_id": 8,
+      "away_team_id": 3
+    },
+    {
+      "round": 1,
+      "timeslot_id": 5,
+      "home_team_id": 7,
+      "away_team_id": 4
+    },
+    {
+      "round": 1,
+      "timeslot_id": 3,
+      "home_team_id": 6,
+      "away_team_id": 5
+    }
+  ]
+}

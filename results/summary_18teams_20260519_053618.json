@@ -1,0 +1,45 @@
+{
+  "num_teams": 18,
+  "pareto_size": 68,
+  "hv_raw": 106076132.42,
+  "hv_normalized": 0.653,
+  "igd": 0.0737,
+  "converge_gen": 197,
+  "total_gen_run": 300,
+  "f1_range": [
+    62,
+    660
+  ],
+  "f2_range": [
+    58,
+    258
+  ],
+  "f3_range": [
+    40,
+    281
+  ],
+  "best_balanced": {
+    "f1": 132,
+    "f2": 206,
+    "f3": 50,
+    "total": 388
+  },
+  "best_f1": {
+    "f1": 62,
+    "f2": 190,
+    "f3": 251,
+    "total": 503
+  },
+  "best_f2": {
+    "f1": 437,
+    "f2": 58,
+    "f3": 160,
+    "total": 655
+  },
+  "best_f3": {
+    "f1": 258,
+    "f2": 168,
+    "f3": 40,
+    "total": 466
+  }
+}

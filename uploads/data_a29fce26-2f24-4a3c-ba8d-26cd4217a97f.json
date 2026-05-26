@@ -1,0 +1,36 @@
+{
+  "teams": [
+    {"id": 0, "name": "Arsenal", "short_name": "ARS", "stadium": "Emirates Stadium", "city": "London", "lat": 51.5549, "lng": -0.1084, "champ_potential": 10},
+    {"id": 1, "name": "Aston Villa", "short_name": "AVL", "stadium": "Villa Park", "city": "Birmingham", "lat": 52.5090, "lng": -1.8847, "champ_potential": 10},
+    {"id": 2, "name": "Brentford", "short_name": "BRE", "stadium": "Gtech Community Stadium", "city": "London", "lat": 51.4882, "lng": -0.3088, "champ_potential": 9},
+    {"id": 3, "name": "Brighton", "short_name": "BHA", "stadium": "Amex Stadium", "city": "Brighton", "lat": 50.8618, "lng": -0.0837, "champ_potential": 9},
+    {"id": 4, "name": "Chelsea", "short_name": "CHE", "stadium": "Stamford Bridge", "city": "London", "lat": 51.4816, "lng": -0.1910, "champ_potential": 8},
+    {"id": 5, "name": "Crystal Palace", "short_name": "CRY", "stadium": "Selhurst Park", "city": "London", "lat": 51.3983, "lng": -0.0855, "champ_potential": 8},
+    {"id": 6, "name": "Everton", "short_name": "EVE", "stadium": "Goodison Park", "city": "Liverpool", "lat": 53.4388, "lng": -2.9663, "champ_potential": 7},
+    {"id": 7, "name": "Fulham", "short_name": "FUL", "stadium": "Craven Cottage", "city": "London", "lat": 51.4749, "lng": -0.2217, "champ_potential": 7}
+  ],
+  "timeslots": [
+    {"id": 0,  "day_offset": 4, "hour": 20},
+    {"id": 1,  "day_offset": 5, "hour": 12},
+    {"id": 2,  "day_offset": 5, "hour": 15},
+    {"id": 3,  "day_offset": 5, "hour": 17},
+    {"id": 4,  "day_offset": 5, "hour": 20},
+    {"id": 5,  "day_offset": 6, "hour": 14},
+    {"id": 6,  "day_offset": 6, "hour": 16},
+    {"id": 7,  "day_offset": 0, "hour": 20},
+    {"id": 8,  "day_offset": 1, "hour": 19},
+    {"id": 9,  "day_offset": 2, "hour": 19},
+    {"id": 10, "day_offset": 3, "hour": 19},
+    {"id": 11, "day_offset": 6, "hour": 11},
+    {"id": 12, "day_offset": 6, "hour": 20}
+  ],
+  "tournament": {
+    "name": "Mini League 8 Teams",
+    "num_teams": 8,
+    "num_rounds": 14,
+    "matches_per_round": 4,
+    "start_date": "2024-08-16",
+    "end_date": "2024-11-01",
+    "days_per_round": 3
+  }
+}

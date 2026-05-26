@@ -1,0 +1,36 @@
+=== KẾT QUẢ GA SCHEDULING ===
+Thời gian : 2026-05-19 02:57:25
+Tournament: English Premier League
+Số đội    : 20 | Số trận: 380
+Fitness   : -242
+
+--- RÀNG BUỘC CỨNG ---
+  ✓ each_pair_twice                    : 0
+  ✓ one_match_per_round                : 0
+  ✓ no_same_stadium_timeslot           : 0
+
+--- RÀNG BUỘC MỀM ---
+  [F1 — Công bằng đội]
+    ✓ home_away_balance           : 0
+    - home_distribution           : 3
+    - min_rest_days               : 1
+    - season_edge_balance         : 14
+  [F2 — Chất lượng trận]
+    - derby_distribution          : 10
+    - no_derby_same_round         : 12
+    - no_consec_big_team          : 52
+    ✓ big_match_half_balance      : 0
+    - big_match_monthly           : 3
+    - big_match_alternation       : 7
+  [F3 — Vận hành/Phát sóng]
+    ✓ prime_timeslot_fairness     : 0
+    ✓ no_timeslot_overload        : 0
+    - travel_distance_balance     : 5
+
+  Tổng soft penalty: 107
+
+--- TIẾN HOÁ ---
+  Gen   1: -1329
+  Gen 150: -288
+  Gen 300: -242
+  Cải thiện: 1087

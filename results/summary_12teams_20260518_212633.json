@@ -1,0 +1,21 @@
+{
+  "num_teams": 12,
+  "pareto_size": 64,
+  "hv_raw": 22908009.86,
+  "hv_normalized": 0.6281,
+  "igd": 0.0851,
+  "converge_gen": 175,
+  "total_gen_run": 300,
+  "f1_range": [
+    35,
+    189
+  ],
+  "f2_range": [
+    40,
+    177
+  ],
+  "f3_range": [
+    40,
+    320
+  ]
+}

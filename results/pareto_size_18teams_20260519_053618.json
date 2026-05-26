@@ -1,0 +1,1437 @@
+[
+  {
+    "gen": 1,
+    "pareto_size": 9,
+    "archive_size": 6
+  },
+  {
+    "gen": 2,
+    "pareto_size": 26,
+    "archive_size": 9
+  },
+  {
+    "gen": 3,
+    "pareto_size": 24,
+    "archive_size": 11
+  },
+  {
+    "gen": 4,
+    "pareto_size": 24,
+    "archive_size": 15
+  },
+  {
+    "gen": 5,
+    "pareto_size": 21,
+    "archive_size": 11
+  },
+  {
+    "gen": 6,
+    "pareto_size": 35,
+    "archive_size": 12
+  },
+  {
+    "gen": 7,
+    "pareto_size": 50,
+    "archive_size": 12
+  },
+  {
+    "gen": 8,
+    "pareto_size": 50,
+    "archive_size": 10
+  },
+  {
+    "gen": 9,
+    "pareto_size": 28,
+    "archive_size": 12
+  },
+  {
+    "gen": 10,
+    "pareto_size": 42,
+    "archive_size": 15
+  },
+  {
+    "gen": 11,
+    "pareto_size": 47,
+    "archive_size": 15
+  },
+  {
+    "gen": 12,
+    "pareto_size": 56,
+    "archive_size": 15
+  },
+  {
+    "gen": 13,
+    "pareto_size": 64,
+    "archive_size": 16
+  },
+  {
+    "gen": 14,
+    "pareto_size": 71,
+    "archive_size": 19
+  },
+  {
+    "gen": 15,
+    "pareto_size": 115,
+    "archive_size": 24
+  },
+  {
+    "gen": 16,
+    "pareto_size": 115,
+    "archive_size": 29
+  },
+  {
+    "gen": 17,
+    "pareto_size": 83,
+    "archive_size": 23
+  },
+  {
+    "gen": 18,
+    "pareto_size": 111,
+    "archive_size": 23
+  },
+  {
+    "gen": 19,
+    "pareto_size": 147,
+    "archive_size": 25
+  },
+  {
+    "gen": 20,
+    "pareto_size": 101,
+    "archive_size": 25
+  },
+  {
+    "gen": 21,
+    "pareto_size": 103,
+    "archive_size": 24
+  },
+  {
+    "gen": 22,
+    "pareto_size": 131,
+    "archive_size": 27
+  },
+  {
+    "gen": 23,
+    "pareto_size": 154,
+    "archive_size": 27
+  },
+  {
+    "gen": 24,
+    "pareto_size": 125,
+    "archive_size": 28
+  },
+  {
+    "gen": 25,
+    "pareto_size": 140,
+    "archive_size": 29
+  },
+  {
+    "gen": 26,
+    "pareto_size": 182,
+    "archive_size": 33
+  },
+  {
+    "gen": 27,
+    "pareto_size": 201,
+    "archive_size": 31
+  },
+  {
+    "gen": 28,
+    "pareto_size": 202,
+    "archive_size": 34
+  },
+  {
+    "gen": 29,
+    "pareto_size": 250,
+    "archive_size": 36
+  },
+  {
+    "gen": 30,
+    "pareto_size": 215,
+    "archive_size": 38
+  },
+  {
+    "gen": 31,
+    "pareto_size": 226,
+    "archive_size": 35
+  },
+  {
+    "gen": 32,
+    "pareto_size": 247,
+    "archive_size": 40
+  },
+  {
+    "gen": 33,
+    "pareto_size": 250,
+    "archive_size": 40
+  },
+  {
+    "gen": 34,
+    "pareto_size": 183,
+    "archive_size": 33
+  },
+  {
+    "gen": 35,
+    "pareto_size": 171,
+    "archive_size": 35
+  },
+  {
+    "gen": 36,
+    "pareto_size": 181,
+    "archive_size": 42
+  },
+  {
+    "gen": 37,
+    "pareto_size": 183,
+    "archive_size": 43
+  },
+  {
+    "gen": 38,
+    "pareto_size": 192,
+    "archive_size": 38
+  },
+  {
+    "gen": 39,
+    "pareto_size": 204,
+    "archive_size": 35
+  },
+  {
+    "gen": 40,
+    "pareto_size": 196,
+    "archive_size": 37
+  },
+  {
+    "gen": 41,
+    "pareto_size": 228,
+    "archive_size": 42
+  },
+  {
+    "gen": 42,
+    "pareto_size": 250,
+    "archive_size": 42
+  },
+  {
+    "gen": 43,
+    "pareto_size": 231,
+    "archive_size": 45
+  },
+  {
+    "gen": 44,
+    "pareto_size": 250,
+    "archive_size": 49
+  },
+  {
+    "gen": 45,
+    "pareto_size": 202,
+    "archive_size": 49
+  },
+  {
+    "gen": 46,
+    "pareto_size": 238,
+    "archive_size": 46
+  },
+  {
+    "gen": 47,
+    "pareto_size": 250,
+    "archive_size": 47
+  },
+  {
+    "gen": 48,
+    "pareto_size": 250,
+    "archive_size": 41
+  },
+  {
+    "gen": 49,
+    "pareto_size": 250,
+    "archive_size": 41
+  },
+  {
+    "gen": 50,
+    "pareto_size": 206,
+    "archive_size": 39
+  },
+  {
+    "gen": 51,
+    "pareto_size": 250,
+    "archive_size": 43
+  },
+  {
+    "gen": 52,
+    "pareto_size": 250,
+    "archive_size": 41
+  },
+  {
+    "gen": 53,
+    "pareto_size": 250,
+    "archive_size": 45
+  },
+  {
+    "gen": 54,
+    "pareto_size": 250,
+    "archive_size": 47
+  },
+  {
+    "gen": 55,
+    "pareto_size": 224,
+    "archive_size": 54
+  },
+  {
+    "gen": 56,
+    "pareto_size": 250,
+    "archive_size": 58
+  },
+  {
+    "gen": 57,
+    "pareto_size": 250,
+    "archive_size": 56
+  },
+  {
+    "gen": 58,
+    "pareto_size": 250,
+    "archive_size": 55
+  },
+  {
+    "gen": 59,
+    "pareto_size": 250,
+    "archive_size": 55
+  },
+  {
+    "gen": 60,
+    "pareto_size": 193,
+    "archive_size": 54
+  },
+  {
+    "gen": 61,
+    "pareto_size": 250,
+    "archive_size": 58
+  },
+  {
+    "gen": 62,
+    "pareto_size": 250,
+    "archive_size": 60
+  },
+  {
+    "gen": 63,
+    "pareto_size": 250,
+    "archive_size": 58
+  },
+  {
+    "gen": 64,
+    "pareto_size": 250,
+    "archive_size": 57
+  },
+  {
+    "gen": 65,
+    "pareto_size": 250,
+    "archive_size": 60
+  },
+  {
+    "gen": 66,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 67,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 68,
+    "pareto_size": 250,
+    "archive_size": 64
+  },
+  {
+    "gen": 69,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 70,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 71,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 72,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 73,
+    "pareto_size": 250,
+    "archive_size": 58
+  },
+  {
+    "gen": 74,
+    "pareto_size": 250,
+    "archive_size": 59
+  },
+  {
+    "gen": 75,
+    "pareto_size": 247,
+    "archive_size": 61
+  },
+  {
+    "gen": 76,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 77,
+    "pareto_size": 250,
+    "archive_size": 62
+  },
+  {
+    "gen": 78,
+    "pareto_size": 250,
+    "archive_size": 57
+  },
+  {
+    "gen": 79,
+    "pareto_size": 250,
+    "archive_size": 60
+  },
+  {
+    "gen": 80,
+    "pareto_size": 225,
+    "archive_size": 60
+  },
+  {
+    "gen": 81,
+    "pareto_size": 250,
+    "archive_size": 56
+  },
+  {
+    "gen": 82,
+    "pareto_size": 250,
+    "archive_size": 57
+  },
+  {
+    "gen": 83,
+    "pareto_size": 250,
+    "archive_size": 58
+  },
+  {
+    "gen": 84,
+    "pareto_size": 250,
+    "archive_size": 56
+  },
+  {
+    "gen": 85,
+    "pareto_size": 250,
+    "archive_size": 57
+  },
+  {
+    "gen": 86,
+    "pareto_size": 250,
+    "archive_size": 59
+  },
+  {
+    "gen": 87,
+    "pareto_size": 250,
+    "archive_size": 59
+  },
+  {
+    "gen": 88,
+    "pareto_size": 250,
+    "archive_size": 60
+  },
+  {
+    "gen": 89,
+    "pareto_size": 250,
+    "archive_size": 60
+  },
+  {
+    "gen": 90,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 91,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 92,
+    "pareto_size": 250,
+    "archive_size": 60
+  },
+  {
+    "gen": 93,
+    "pareto_size": 250,
+    "archive_size": 56
+  },
+  {
+    "gen": 94,
+    "pareto_size": 250,
+    "archive_size": 56
+  },
+  {
+    "gen": 95,
+    "pareto_size": 250,
+    "archive_size": 57
+  },
+  {
+    "gen": 96,
+    "pareto_size": 250,
+    "archive_size": 58
+  },
+  {
+    "gen": 97,
+    "pareto_size": 250,
+    "archive_size": 58
+  },
+  {
+    "gen": 98,
+    "pareto_size": 250,
+    "archive_size": 58
+  },
+  {
+    "gen": 99,
+    "pareto_size": 250,
+    "archive_size": 53
+  },
+  {
+    "gen": 100,
+    "pareto_size": 247,
+    "archive_size": 55
+  },
+  {
+    "gen": 101,
+    "pareto_size": 250,
+    "archive_size": 55
+  },
+  {
+    "gen": 102,
+    "pareto_size": 250,
+    "archive_size": 55
+  },
+  {
+    "gen": 103,
+    "pareto_size": 250,
+    "archive_size": 55
+  },
+  {
+    "gen": 104,
+    "pareto_size": 250,
+    "archive_size": 51
+  },
+  {
+    "gen": 105,
+    "pareto_size": 250,
+    "archive_size": 57
+  },
+  {
+    "gen": 106,
+    "pareto_size": 250,
+    "archive_size": 56
+  },
+  {
+    "gen": 107,
+    "pareto_size": 250,
+    "archive_size": 56
+  },
+  {
+    "gen": 108,
+    "pareto_size": 250,
+    "archive_size": 58
+  },
+  {
+    "gen": 109,
+    "pareto_size": 250,
+    "archive_size": 58
+  },
+  {
+    "gen": 110,
+    "pareto_size": 250,
+    "archive_size": 59
+  },
+  {
+    "gen": 111,
+    "pareto_size": 250,
+    "archive_size": 59
+  },
+  {
+    "gen": 112,
+    "pareto_size": 250,
+    "archive_size": 60
+  },
+  {
+    "gen": 113,
+    "pareto_size": 250,
+    "archive_size": 59
+  },
+  {
+    "gen": 114,
+    "pareto_size": 250,
+    "archive_size": 59
+  },
+  {
+    "gen": 115,
+    "pareto_size": 247,
+    "archive_size": 58
+  },
+  {
+    "gen": 116,
+    "pareto_size": 250,
+    "archive_size": 58
+  },
+  {
+    "gen": 117,
+    "pareto_size": 250,
+    "archive_size": 56
+  },
+  {
+    "gen": 118,
+    "pareto_size": 250,
+    "archive_size": 55
+  },
+  {
+    "gen": 119,
+    "pareto_size": 250,
+    "archive_size": 55
+  },
+  {
+    "gen": 120,
+    "pareto_size": 250,
+    "archive_size": 58
+  },
+  {
+    "gen": 121,
+    "pareto_size": 250,
+    "archive_size": 53
+  },
+  {
+    "gen": 122,
+    "pareto_size": 250,
+    "archive_size": 54
+  },
+  {
+    "gen": 123,
+    "pareto_size": 250,
+    "archive_size": 57
+  },
+  {
+    "gen": 124,
+    "pareto_size": 250,
+    "archive_size": 56
+  },
+  {
+    "gen": 125,
+    "pareto_size": 250,
+    "archive_size": 59
+  },
+  {
+    "gen": 126,
+    "pareto_size": 250,
+    "archive_size": 57
+  },
+  {
+    "gen": 127,
+    "pareto_size": 250,
+    "archive_size": 57
+  },
+  {
+    "gen": 128,
+    "pareto_size": 250,
+    "archive_size": 58
+  },
+  {
+    "gen": 129,
+    "pareto_size": 250,
+    "archive_size": 57
+  },
+  {
+    "gen": 130,
+    "pareto_size": 250,
+    "archive_size": 58
+  },
+  {
+    "gen": 131,
+    "pareto_size": 250,
+    "archive_size": 56
+  },
+  {
+    "gen": 132,
+    "pareto_size": 250,
+    "archive_size": 57
+  },
+  {
+    "gen": 133,
+    "pareto_size": 250,
+    "archive_size": 57
+  },
+  {
+    "gen": 134,
+    "pareto_size": 250,
+    "archive_size": 57
+  },
+  {
+    "gen": 135,
+    "pareto_size": 250,
+    "archive_size": 60
+  },
+  {
+    "gen": 136,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 137,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 138,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 139,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 140,
+    "pareto_size": 230,
+    "archive_size": 61
+  },
+  {
+    "gen": 141,
+    "pareto_size": 250,
+    "archive_size": 60
+  },
+  {
+    "gen": 142,
+    "pareto_size": 250,
+    "archive_size": 60
+  },
+  {
+    "gen": 143,
+    "pareto_size": 250,
+    "archive_size": 60
+  },
+  {
+    "gen": 144,
+    "pareto_size": 250,
+    "archive_size": 62
+  },
+  {
+    "gen": 145,
+    "pareto_size": 250,
+    "archive_size": 62
+  },
+  {
+    "gen": 146,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 147,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 148,
+    "pareto_size": 250,
+    "archive_size": 60
+  },
+  {
+    "gen": 149,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 150,
+    "pareto_size": 250,
+    "archive_size": 62
+  },
+  {
+    "gen": 151,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 152,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 153,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 154,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 155,
+    "pareto_size": 250,
+    "archive_size": 62
+  },
+  {
+    "gen": 156,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 157,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 158,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 159,
+    "pareto_size": 250,
+    "archive_size": 62
+  },
+  {
+    "gen": 160,
+    "pareto_size": 250,
+    "archive_size": 66
+  },
+  {
+    "gen": 161,
+    "pareto_size": 250,
+    "archive_size": 67
+  },
+  {
+    "gen": 162,
+    "pareto_size": 250,
+    "archive_size": 67
+  },
+  {
+    "gen": 163,
+    "pareto_size": 250,
+    "archive_size": 67
+  },
+  {
+    "gen": 164,
+    "pareto_size": 250,
+    "archive_size": 62
+  },
+  {
+    "gen": 165,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 166,
+    "pareto_size": 250,
+    "archive_size": 62
+  },
+  {
+    "gen": 168,
+    "pareto_size": 241,
+    "archive_size": 62
+  },
+  {
+    "gen": 169,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 170,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 171,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 172,
+    "pareto_size": 250,
+    "archive_size": 64
+  },
+  {
+    "gen": 173,
+    "pareto_size": 250,
+    "archive_size": 68
+  },
+  {
+    "gen": 175,
+    "pareto_size": 250,
+    "archive_size": 71
+  },
+  {
+    "gen": 176,
+    "pareto_size": 250,
+    "archive_size": 71
+  },
+  {
+    "gen": 177,
+    "pareto_size": 250,
+    "archive_size": 71
+  },
+  {
+    "gen": 178,
+    "pareto_size": 250,
+    "archive_size": 72
+  },
+  {
+    "gen": 179,
+    "pareto_size": 250,
+    "archive_size": 72
+  },
+  {
+    "gen": 180,
+    "pareto_size": 250,
+    "archive_size": 73
+  },
+  {
+    "gen": 181,
+    "pareto_size": 250,
+    "archive_size": 69
+  },
+  {
+    "gen": 182,
+    "pareto_size": 250,
+    "archive_size": 69
+  },
+  {
+    "gen": 183,
+    "pareto_size": 250,
+    "archive_size": 69
+  },
+  {
+    "gen": 184,
+    "pareto_size": 250,
+    "archive_size": 69
+  },
+  {
+    "gen": 185,
+    "pareto_size": 250,
+    "archive_size": 67
+  },
+  {
+    "gen": 186,
+    "pareto_size": 250,
+    "archive_size": 67
+  },
+  {
+    "gen": 187,
+    "pareto_size": 250,
+    "archive_size": 68
+  },
+  {
+    "gen": 188,
+    "pareto_size": 250,
+    "archive_size": 66
+  },
+  {
+    "gen": 189,
+    "pareto_size": 250,
+    "archive_size": 66
+  },
+  {
+    "gen": 190,
+    "pareto_size": 250,
+    "archive_size": 68
+  },
+  {
+    "gen": 191,
+    "pareto_size": 250,
+    "archive_size": 68
+  },
+  {
+    "gen": 192,
+    "pareto_size": 250,
+    "archive_size": 68
+  },
+  {
+    "gen": 193,
+    "pareto_size": 250,
+    "archive_size": 69
+  },
+  {
+    "gen": 194,
+    "pareto_size": 250,
+    "archive_size": 65
+  },
+  {
+    "gen": 195,
+    "pareto_size": 250,
+    "archive_size": 65
+  },
+  {
+    "gen": 196,
+    "pareto_size": 250,
+    "archive_size": 64
+  },
+  {
+    "gen": 197,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 198,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 199,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 200,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 201,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 202,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 203,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 204,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 205,
+    "pareto_size": 250,
+    "archive_size": 62
+  },
+  {
+    "gen": 206,
+    "pareto_size": 250,
+    "archive_size": 62
+  },
+  {
+    "gen": 207,
+    "pareto_size": 250,
+    "archive_size": 62
+  },
+  {
+    "gen": 208,
+    "pareto_size": 250,
+    "archive_size": 62
+  },
+  {
+    "gen": 209,
+    "pareto_size": 250,
+    "archive_size": 62
+  },
+  {
+    "gen": 210,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 211,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 212,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 213,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 214,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 215,
+    "pareto_size": 250,
+    "archive_size": 62
+  },
+  {
+    "gen": 216,
+    "pareto_size": 250,
+    "archive_size": 65
+  },
+  {
+    "gen": 218,
+    "pareto_size": 250,
+    "archive_size": 60
+  },
+  {
+    "gen": 219,
+    "pareto_size": 250,
+    "archive_size": 65
+  },
+  {
+    "gen": 220,
+    "pareto_size": 250,
+    "archive_size": 65
+  },
+  {
+    "gen": 221,
+    "pareto_size": 250,
+    "archive_size": 65
+  },
+  {
+    "gen": 222,
+    "pareto_size": 250,
+    "archive_size": 66
+  },
+  {
+    "gen": 223,
+    "pareto_size": 250,
+    "archive_size": 67
+  },
+  {
+    "gen": 225,
+    "pareto_size": 250,
+    "archive_size": 67
+  },
+  {
+    "gen": 226,
+    "pareto_size": 250,
+    "archive_size": 66
+  },
+  {
+    "gen": 227,
+    "pareto_size": 250,
+    "archive_size": 66
+  },
+  {
+    "gen": 228,
+    "pareto_size": 250,
+    "archive_size": 65
+  },
+  {
+    "gen": 229,
+    "pareto_size": 250,
+    "archive_size": 68
+  },
+  {
+    "gen": 230,
+    "pareto_size": 250,
+    "archive_size": 68
+  },
+  {
+    "gen": 232,
+    "pareto_size": 250,
+    "archive_size": 66
+  },
+  {
+    "gen": 233,
+    "pareto_size": 250,
+    "archive_size": 67
+  },
+  {
+    "gen": 234,
+    "pareto_size": 250,
+    "archive_size": 68
+  },
+  {
+    "gen": 235,
+    "pareto_size": 250,
+    "archive_size": 68
+  },
+  {
+    "gen": 236,
+    "pareto_size": 250,
+    "archive_size": 68
+  },
+  {
+    "gen": 237,
+    "pareto_size": 224,
+    "archive_size": 65
+  },
+  {
+    "gen": 239,
+    "pareto_size": 250,
+    "archive_size": 66
+  },
+  {
+    "gen": 240,
+    "pareto_size": 250,
+    "archive_size": 66
+  },
+  {
+    "gen": 241,
+    "pareto_size": 250,
+    "archive_size": 66
+  },
+  {
+    "gen": 242,
+    "pareto_size": 250,
+    "archive_size": 66
+  },
+  {
+    "gen": 243,
+    "pareto_size": 250,
+    "archive_size": 68
+  },
+  {
+    "gen": 244,
+    "pareto_size": 250,
+    "archive_size": 70
+  },
+  {
+    "gen": 246,
+    "pareto_size": 250,
+    "archive_size": 73
+  },
+  {
+    "gen": 247,
+    "pareto_size": 250,
+    "archive_size": 73
+  },
+  {
+    "gen": 248,
+    "pareto_size": 250,
+    "archive_size": 73
+  },
+  {
+    "gen": 249,
+    "pareto_size": 250,
+    "archive_size": 73
+  },
+  {
+    "gen": 250,
+    "pareto_size": 250,
+    "archive_size": 66
+  },
+  {
+    "gen": 251,
+    "pareto_size": 250,
+    "archive_size": 68
+  },
+  {
+    "gen": 253,
+    "pareto_size": 250,
+    "archive_size": 68
+  },
+  {
+    "gen": 254,
+    "pareto_size": 250,
+    "archive_size": 65
+  },
+  {
+    "gen": 255,
+    "pareto_size": 250,
+    "archive_size": 65
+  },
+  {
+    "gen": 256,
+    "pareto_size": 250,
+    "archive_size": 66
+  },
+  {
+    "gen": 257,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 258,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 260,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 261,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 262,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 263,
+    "pareto_size": 250,
+    "archive_size": 64
+  },
+  {
+    "gen": 264,
+    "pareto_size": 250,
+    "archive_size": 64
+  },
+  {
+    "gen": 265,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 266,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 267,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 268,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 269,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 270,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 271,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 272,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 273,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 274,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 275,
+    "pareto_size": 250,
+    "archive_size": 64
+  },
+  {
+    "gen": 276,
+    "pareto_size": 241,
+    "archive_size": 62
+  },
+  {
+    "gen": 278,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 279,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 280,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 281,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 282,
+    "pareto_size": 250,
+    "archive_size": 63
+  },
+  {
+    "gen": 283,
+    "pareto_size": 250,
+    "archive_size": 65
+  },
+  {
+    "gen": 285,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 286,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 287,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 288,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 289,
+    "pareto_size": 250,
+    "archive_size": 61
+  },
+  {
+    "gen": 290,
+    "pareto_size": 250,
+    "archive_size": 62
+  },
+  {
+    "gen": 292,
+    "pareto_size": 250,
+    "archive_size": 64
+  },
+  {
+    "gen": 293,
+    "pareto_size": 250,
+    "archive_size": 64
+  },
+  {
+    "gen": 294,
+    "pareto_size": 250,
+    "archive_size": 64
+  },
+  {
+    "gen": 295,
+    "pareto_size": 250,
+    "archive_size": 64
+  },
+  {
+    "gen": 296,
+    "pareto_size": 250,
+    "archive_size": 65
+  },
+  {
+    "gen": 297,
+    "pareto_size": 250,
+    "archive_size": 66
+  },
+  {
+    "gen": 299,
+    "pareto_size": 250,
+    "archive_size": 68
+  },
+  {
+    "gen": 300,
+    "pareto_size": 250,
+    "archive_size": 68
+  }
+]
