@@ -13,7 +13,7 @@ from core.ga import run_ga
 from core.nsga2 import run_nsga2, pick_representative
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins="*")
 
 app.config['UPLOAD_FOLDER'] = os.path.join(base_dir, 'uploads')
 app.config['RESULT_FOLDER'] = os.path.join(base_dir, 'results')
