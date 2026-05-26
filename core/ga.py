@@ -515,7 +515,6 @@ def round_swap_crossover(p1, p2, tournament):
             c1.append(Match(m.home_team_id, m.away_team_id, m.round, t2))
         p2m = mp2.get(key)
         if m.round in (r1, r2) and p2m:
-            # Hoán đổi toàn bộ (Vòng + Khung giờ) để khớp với báo cáo
             c1.append(Match(m.home_team_id, m.away_team_id, p2m.round, p2m.timeslot_id))
             c2.append(Match(m.home_team_id, m.away_team_id, m.round, m.timeslot_id))
         else:

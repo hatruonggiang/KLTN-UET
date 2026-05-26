@@ -949,21 +949,21 @@ def run_nsga2(tournament, params=None):
                 break
 
         population = new_pop
-        W = _get_weights(tournament.num_teams)
-        feasibles = [ind for ind in population if ind.is_feasible][:50]
+        # W = _get_weights(tournament.num_teams)
+        # feasibles = [ind for ind in population if ind.is_feasible][:50]
 
-        for label, keys in [("F1", KEYS_F1), ("F2", KEYS_F2), ("F3", KEYS_F3)]:
-            vals = []
-            for ind in feasibles:
-                soft = count_soft_penalties(ind, tournament)
-                vals.append(sum(W.get(k,1) * soft.get(k,0) for k in keys))
-            print(f"{label}: min={min(vals):.1f} max={max(vals):.1f} "
-                f"mean={sum(vals)/len(vals):.1f} nonzero={sum(1 for v in vals if v>0)}/{len(vals)}")
-            # In chi tiết từng key
-            for k in keys:
-                kvals = [W.get(k,1) * count_soft_penalties(ind, tournament).get(k,0) 
-                        for ind in feasibles]
-                print(f"  {k}: mean={sum(kvals)/len(kvals):.2f} max={max(kvals):.2f}")
+        # for label, keys in [("F1", KEYS_F1), ("F2", KEYS_F2), ("F3", KEYS_F3)]:
+        #     vals = []
+        #     for ind in feasibles:
+        #         soft = count_soft_penalties(ind, tournament)
+        #         vals.append(sum(W.get(k,1) * soft.get(k,0) for k in keys))
+        #     print(f"{label}: min={min(vals):.1f} max={max(vals):.1f} "
+        #         f"mean={sum(vals)/len(vals):.1f} nonzero={sum(1 for v in vals if v>0)}/{len(vals)}")
+        #     # In chi tiết từng key
+        #     for k in keys:
+        #         kvals = [W.get(k,1) * count_soft_penalties(ind, tournament).get(k,0) 
+        #                 for ind in feasibles]
+        #         print(f"  {k}: mean={sum(kvals)/len(kvals):.2f} max={max(kvals):.2f}")
 
         fronts = fast_non_dominated_sort(population)
         for front in fronts:
