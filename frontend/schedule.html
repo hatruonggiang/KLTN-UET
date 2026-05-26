@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Thi Đấu Chi Tiết</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body { background: #0f172a; color: white; }
+        tbody tr:hover { background: rgba(0,255,136,0.08); }
+    </style>
+</head>
+<body>
+<div class="container py-4">
+    <h2 class="text-center mb-4">
+        <i class="fas fa-calendar-alt me-2"></i>LỊCH THI ĐẤU CHI TIẾT
+    </h2>
+
+    <div class="mb-3">
+        <input type="text" id="searchInput"
+               class="form-control bg-dark text-white border-secondary"
+               placeholder="Tìm theo đội, vòng, sân vận động...">
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-dark table-hover align-middle">
+            <thead class="table-success text-dark">
+                <tr>
+                    <th>Vòng</th>
+                    <th>Thời gian</th>
+                    <th class="text-end">Đội nhà</th>
+                    <th class="text-center">vs</th>
+                    <th>Đội khách</th>
+                    <th>Sân vận động</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr><td colspan="6" class="text-center">Đang tải...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-between mt-4">
+        <a href="/result.html" class="btn btn-outline-light">← Quay lại kết quả</a>
+        <a href="/" class="btn btn-outline-secondary">Trang chủ</a>
+    </div>
+</div>
+
+<script>
+    const API_URL = "https://football-scheduler-api.onrender.com"; // ← ĐỔI THÀNH URL RENDER CỦA BẠN
+
+    let allMatches = [];
+
+    async function loadSchedule() {
+        const filename = new URLSearchParams(window.location.search).get('file');
+        if (!filename) { window.location.href = '/'; return; }
+
+        try {
+            const res  = await fetch(`${API_URL}/api/schedule/${filename}`);
+            const data = await res.json();
+            if (data.error) throw new Error(data.error);
+            allMatches = data.matches;
+            renderTable(allMatches);
+        } catch (err) {
+            document.getElementById('tableBody').innerHTML =
+                `<tr><td colspan="6" class="text-center text-danger">
+                    Lỗi tải dữ liệu: ${err.message}
+                </td></tr>`;
+        }
+    }
+
+    function renderTable(matches) {
+        document.getElementById('tableBody').innerHTML = matches.length
+            ? matches.map(m => `
+                <tr>
+                    <td><span class="badge bg-primary fs-6">Vòng ${m.round}</span></td>
+                    <td>${m.time}</td>
+                    <td class="text-end fw-bold">${m.home_team}</td>
+                    <td class="text-center text-success fw-bold">vs</td>
+                    <td class="fw-bold">${m.away_team}</td>
+                    <td class="text-info">
+                        <i class="fas fa-landmark me-1"></i>${m.stadium}
+                    </td>
+                </tr>`).join('')
+            : '<tr><td colspan="6" class="text-center text-muted">Không tìm thấy kết quả</td></tr>';
+    }
+
+    document.getElementById('searchInput').addEventListener('input', e => {
+        const term = e.target.value.toLowerCase();
+        renderTable(allMatches.filter(m =>
+            m.home_team.toLowerCase().includes(term) ||
+            m.away_team.toLowerCase().includes(term) ||
+            m.stadium.toLowerCase().includes(term)  ||
+            `vòng ${m.round}`.includes(term)
+        ));
+    });
+
+    window.onload = loadSchedule;
+</script>
+</body>
+</html>

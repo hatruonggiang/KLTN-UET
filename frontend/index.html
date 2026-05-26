@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lập Lịch Bóng Đá</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body { background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%); color: white; min-height: 100vh; }
+        .card { background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
+        .btn-primary { background: #00ff88; color: #0f172a; font-weight: bold; border: none; }
+        .btn-primary:hover { background: #00cc6a; color: #0f172a; }
+    </style>
+</head>
+<body>
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold"><i class="fas fa-futbol me-3"></i>LẬP LỊCH BÓNG ĐÁ</h1>
+        <p class="lead">Mini League Scheduler</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card p-5 shadow">
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Tải file mẫu tham khảo</label>
+                    <div class="input-group">
+                        <select class="form-select bg-dark text-white border-secondary" id="templateSelect">
+                            <option>Đang tải...</option>
+                        </select>
+                        <button class="btn btn-outline-light" onclick="downloadTemplate()">
+                            <i class="fas fa-download me-2"></i>Tải về
+                        </button>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold">1. Tải lên file JSON của bạn</label>
+                    <input type="file" id="fileInput" class="form-control bg-dark text-white border-secondary" accept=".json">
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold">2. Chọn thuật toán</label>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="card p-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="algorithm" value="ga" id="ga" checked>
+                                    <label class="form-check-label" for="ga">
+                                        <strong>Genetic Algorithm</strong><br>
+                                        <small class="text-light">Đơn mục tiêu • Tốc độ nhanh</small>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card p-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="algorithm" value="nsga2" id="nsga2">
+                                    <label class="form-check-label" for="nsga2">
+                                        <strong>NSGA-II</strong><br>
+                                        <small class="text-light">Đa mục tiêu • Công bằng + Phát sóng</small>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-lg w-100 py-3" id="runBtn" onclick="runAlgorithm()">
+                    <i class="fas fa-play me-2"></i>BẮT ĐẦU TÍNH TOÁN
+                </button>
+
+                <div id="errorBox" class="alert alert-danger mt-3 d-none"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const API_URL = "https://football-scheduler-api.onrender.com"; // ← ĐỔI THÀNH URL RENDER CỦA BẠN
+
+    async function loadTemplates() {
+        try {
+            const res = await fetch(`${API_URL}/api/templates`);
+            const list = await res.json();
+            const sel  = document.getElementById('templateSelect');
+            sel.innerHTML = list.map(t => `<option value="${t}">${t}</option>`).join('');
+        } catch {
+            document.getElementById('templateSelect').innerHTML =
+                '<option>Không kết nối được server</option>';
+        }
+    }
+
+    function downloadTemplate() {
+        const f = document.getElementById('templateSelect').value;
+        if (f) window.open(`${API_URL}/download/template/${f}`);
+    }
+
+    async function runAlgorithm() {
+        const file = document.getElementById('fileInput').files[0];
+        const algo = document.querySelector('input[name=algorithm]:checked').value;
+        const errBox = document.getElementById('errorBox');
+        errBox.classList.add('d-none');
+
+        if (!file) {
+            errBox.textContent = 'Vui lòng chọn file JSON trước.';
+            errBox.classList.remove('d-none');
+            return;
+        }
+
+        const btn = document.getElementById('runBtn');
+        btn.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span>Đang tính toán... (có thể mất vài phút)`;
+        btn.disabled = true;
+
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('algorithm', algo);
+
+        try {
+            const res  = await fetch(`${API_URL}/run`, { method: 'POST', body: formData });
+            const data = await res.json();
+            if (data.error) throw new Error(data.error);
+            localStorage.setItem('scheduleResult', JSON.stringify(data));
+            window.location.href = '/result.html';
+        } catch (err) {
+            errBox.textContent = 'Lỗi: ' + err.message;
+            errBox.classList.remove('d-none');
+            btn.innerHTML = `<i class="fas fa-play me-2"></i>BẮT ĐẦU TÍNH TOÁN`;
+            btn.disabled = false;
+        }
+    }
+
+    window.onload = loadTemplates;
+</script>
+</body>
+</html>
