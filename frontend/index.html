@@ -82,7 +82,8 @@
 </div>
 
 <script>
-    const API_URL = "https://kltn-uet.onrender.com";
+    const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
+    const API_URL = isLocal ? "http://127.0.0.1:5000" : "https://kltn-uet.onrender.com";
 
     async function loadTemplates() {
         try {
@@ -117,6 +118,9 @@
         btn.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span>Đang tính toán... (có thể mất vài phút)`;
         btn.disabled = true;
 
+        // Cho trình duyệt render lại spinner trước khi fetch bắt đầu
+        await new Promise(resolve => setTimeout(resolve, 50));
+
         const formData = new FormData();
         formData.append('file', file);
         formData.append('algorithm', algo);
@@ -126,7 +130,7 @@
             const data = await res.json();
             if (data.error) throw new Error(data.error);
             localStorage.setItem('scheduleResult', JSON.stringify(data));
-            window.location.href = '/result.html';
+            window.location.href = 'result.html';
         } catch (err) {
             errBox.textContent = 'Lỗi: ' + err.message;
             errBox.classList.remove('d-none');

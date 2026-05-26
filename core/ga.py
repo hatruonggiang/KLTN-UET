@@ -1120,13 +1120,13 @@ if __name__ == "__main__":
     from models import Tournament
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    tournament = Tournament(os.path.join(base_dir, "../data/teams10.json"))
+    tournament = Tournament(os.path.join(base_dir, "../data/teams8.json"))
 
     best, history = run_ga(tournament, params={
         "population_size":       250,
         "num_generations":       300,
         "crossover_rate":        0.85,
-        "mutation_rate":         0.25,
+        "mutation_rate":         0.15,
         "tournament_size":       7,
         "elitism_count":         6,
         "stagnation_limit":      8,

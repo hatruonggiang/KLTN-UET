@@ -85,10 +85,12 @@ def run_algorithm():
             with open(out_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
+            # Lấy fitness nếu có, nếu không có (như trong NSGA-2) thì gán mặc định
+            fitness_val = getattr(ind, 'fitness', None)
             return {
                 "filename":    out_fn,
                 "label":       label,
-                "fitness":     f"{ind.fitness:.1f}" if ind.fitness else "0",
+                "fitness":     f"{fitness_val:.1f}" if fitness_val is not None else "N/A",
                 "objectives":  obj_str,
                 "num_matches": len(ind.matches),
                 "num_teams":   tournament.num_teams

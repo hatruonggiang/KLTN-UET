@@ -27,11 +27,13 @@
 </div>
 
 <script>
-    const API_URL = "https://kltn-uet.onrender.com";
+        // Tự động nhận diện URL server: Nếu đang chạy local (localhost/127.0.0.1) hoặc mở file trực tiếp thì dùng port 5000
+    const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:";
+    const API_URL = isLocal ? "http://127.0.0.1:5000" : "https://kltn-uet.onrender.com";
 
     window.onload = function () {
         const data = JSON.parse(localStorage.getItem('scheduleResult'));
-        if (!data) { window.location.href = '/'; return; }
+        if (!data) { window.location.href = 'index.html'; return; }
 
         document.getElementById('algoLabel').innerHTML =
             `Thuật toán <strong>${data.algo}</strong> đã hoàn tất tính toán.`;
